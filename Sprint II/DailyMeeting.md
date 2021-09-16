@@ -5,7 +5,7 @@ Fecha: 15/09/2021
 Lider de equipo:
 I. ¿que hizo ayer? Primera reunion, se discutió acerca del sprint 2, paso a paso y tareas individuales,
 Se desarrollo parte del paso a paso, sea actualizaron tareas en el Jira
-II. ¿que hará hoy? Terminar el paso, brindar asesoria a quien lo necesite.
+II. ¿que hará hoy? Terminar el paso a paso, brindar asesoria a quien lo necesite.
 III. ¿que dificultades ha tenido? Con la programación ninguno, un poco fatla de tiempo.
 -------------------------------------------------------------------------------------------------------
 Adminostradora de configuración:
