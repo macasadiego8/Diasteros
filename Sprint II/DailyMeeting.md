@@ -8,7 +8,7 @@ Se desarrollo parte del paso a paso, sea actualizaron tareas en el Jira
 II. ¿que hará hoy? Terminar el paso a paso, brindar asesoria a quien lo necesite.
 III. ¿que dificultades ha tenido? Con la programación ninguno, un poco fatla de tiempo.
 -------------------------------------------------------------------------------------------------------
-Adminostradora de configuración:
+Administradora de configuración:
 I. ¿que hizo ayer? GitHub, se crearon las carpetas asignadas en el PDF, empezó el paso a paso.
 II. ¿que hará hoy? Terminar el paso a paso
 III. ¿que dificultades ha tenido? Ninguna
