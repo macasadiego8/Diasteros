@@ -28,5 +28,7 @@ Tester:
 I. ¿que hizo ayer? Leer la documentacion del spring, leer documentacion acerca del testing, como se
 hace, como funciona.
 II. ¿que hará hoy? Empezó a desarrollar el paso a paso.
-III. ¿que dificultades ha tenido? Ninguna
+III. ¿que dificultades ha tenido? Ninguna.
 -------------------------------------------------------------------------------------------------------
+Se desarrollo evaluación de los campos presentados por el diseñador de UI, si se necesitan mas
+campos o no, se sugirieron el campo categoria y clasificación.
