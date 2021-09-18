@@ -48,7 +48,7 @@ I. ¿que hizo ayer? Ya se esta terminando el paso a paso, se corrije con ayuda d
 boton, se actualizo este cuadro del dia anterior y se desarrollo el diagrama de clases junto al
 diseñador de UI.
 II. ¿que hará hoy? Terminar el paso a paso, subir informacion a las plataformas.
-III. ¿que dificultades ha tenido? Dificulatades con el boton
+III. ¿que dificultades ha tenido? Dificulatades con el boton.
 -------------------------------------------------------------------------------------------------------
 Administradora de configuración:
 I. ¿que hizo ayer? Paso a paso,documentacion en videos de la docente, revisando informacion subida a las
@@ -68,28 +68,29 @@ II. ¿que hará hoy?
 III. ¿que dificultades ha tenido?
 -------------------------------------------------------------------------------------------------------
 Tester:
-I. ¿que hizo ayer? Revisar lo de particion de equivalencia
-II. ¿que hará hoy? Paso a paso terminado, actualizacion en el Jira
-III. ¿que dificultades ha tenido? No se tiene totalmente claro lo de particion equivalente
+I. ¿que hizo ayer? Revisar lo de particion de equivalencia.
+II. ¿que hará hoy? Paso a paso terminado, actualizacion en el Jira.
+III. ¿que dificultades ha tenido? No se tiene totalmente claro lo de particion equivalente.
 -------------------------------------------------------------------------------------------------------
 
 Enlace grabación reunión: https://drive.google.com/file/d/1I-HjhSMGHxD9-2Rnu5Gg_8k_MOjvbMnk/view?usp=sharing
 Fecha: 17/09/2021
 -------------------------------------------------------------------------------------------------------
 Lider de equipo:
-I. ¿que hizo ayer?
-II. ¿que hará hoy? 
-III. ¿que dificultades ha tenido?
+I. ¿que hizo ayer? Se desarrollo el diagrama de clases junto a el diseñador de UI, reunion con la
+tutora, asesoria con Maria Alejandra para el paso a paso.
+II. ¿que hará hoy? Terminar diagrama de clases y subir documentacion.
+III. ¿que dificultades ha tenido? Que no se pudo solucionar el problema de Maria Alejandra.
 -------------------------------------------------------------------------------------------------------
 Administradora de configuración:
-I. ¿que hizo ayer? 
-II. ¿que hará hoy?
-III. ¿que dificultades ha tenido?
+I. ¿que hizo ayer? Intentando culminar el paso a paso, ver videos de las clases no sincronicas.
+II. ¿que hará hoy? Preguntar en clase como solucionar el problema.
+III. ¿que dificultades ha tenido? No funciono el paso paso.
 -------------------------------------------------------------------------------------------------------
 Diseñador de UI:
-I. ¿que hizo ayer?
-II. ¿que hará hoy?
-III. ¿que dificultades ha tenido?
+I. ¿que hizo ayer? Digrama de clases, revisar la interfaz.
+II. ¿que hará hoy? Segunda propuesta, plantillas en Adobe XD.
+III. ¿que dificultades ha tenido? No han habido problemas.
 -------------------------------------------------------------------------------------------------------
 Diseñador de software: No asistio a reunion, calamidad domestica.
 I. ¿que hizo ayer?
@@ -97,10 +98,13 @@ II. ¿que hará hoy?
 III. ¿que dificultades ha tenido?
 -------------------------------------------------------------------------------------------------------
 Tester:
-I. ¿que hizo ayer? 
-II. ¿que hará hoy? 
-III. ¿que dificultades ha tenido? 
--------------------------------------------------------------------------
+I. ¿que hizo ayer? Paso a paso.
+II. ¿que hará hoy? Particion de equivalencia, primer diseño de pruebas.
+III. ¿que dificultades ha tenido? Mayoria de documentacion encontrada es para valores numericos.
+------------------------------------------------------------------------------------------------------
+Se verifica los valores para las pruebas entre los miembros del equipo junto a la tester
+------------------------------------------------------------------------------------------------------
+
 Enlace grabación reunión: https://drive.google.com/file/d/1RcGkA4uYs-0R8wfXMrzpH7hmX0i9KpJA/view?usp=sharing
 Fecha: 18/09/2021
 -------------------------------------------------------------------------------------------------------
