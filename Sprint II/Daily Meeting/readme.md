@@ -1,24 +1,30 @@
 Grabaciones Sprint II: https://drive.google.com/drive/folders/1TwJy1cB1tZajdNVVY96vOtwbMVxoJ6PK?usp=sharing
--------------------------------------------------------------------------------------------------------
+
+
 Enlace grabación reunión: https://drive.google.com/drive/folders/1TwJy1cB1tZajdNVVY96vOtwbMVxoJ6PK
-Fecha: 13/09/2021
+Fecha: 14/09/2021
+-------------------------------------------------------------------------------------------------------
+Primera reunion, se discutió acerca del sprint 2, paso a paso y tareas individuales,
+Se desarrollo parte del paso a paso, sea actualizaron tareas en el Jira.
+
+Enlace grabación reunión: https://drive.google.com/file/d/1m34llj75MEU9YejRKK_R7xl5sOhlRBpA/view?usp=sharing
+Fecha: 15/09/2021
 -------------------------------------------------------------------------------------------------------
 Lider de equipo:
-I. ¿que hizo ayer? Primera reunion, se discutió acerca del sprint 2, paso a paso y tareas individuales,
-Se desarrollo parte del paso a paso, sea actualizaron tareas en el Jira
-II. ¿que hará hoy? Terminar el paso a paso, brindar asesoria a quien lo necesite.
-III. ¿que dificultades ha tenido? Con la programación ninguno, un poco fatla de tiempo.
+I. ¿que hizo ayer? Primera reunion, se discutio acerca del sprint 2, se adelanto el paso a paso, 
+se actualizo el tablero Jira con las tareas del sprint
+II. ¿que hará hoy? Terminar el paso a paso y dar asesoria a alguno de los compañeros que la necesiten
+III. ¿que dificultades ha tenido? Ninguna
 -------------------------------------------------------------------------------------------------------
 Administradora de configuración:
-I. ¿que hizo ayer? GitHub, se crearon las carpetas asignadas en el PDF, empezó el paso a paso.
+I. ¿que hizo ayer? GitHub, ser crearon las carpetas del Sprint 2, se empezó el paso a paso
 II. ¿que hará hoy? Terminar el paso a paso
 III. ¿que dificultades ha tenido? Ninguna
 -------------------------------------------------------------------------------------------------------
 Diseñador de UI:
-I. ¿que hizo ayer? Se reviso la documentacion del sprint 2 
-II. ¿que hará hoy? Diseño de los campos para el sprint, aprender a manejar Adobe XD, continuar XD
-y desarrollo el paso a paso.
-III. ¿que dificultades ha tenido? Ninguna, un poco de falta de tiempo.
+I. ¿que hizo ayer? Se revisó la documentacion, diseño de campos para el proyecto, aprender Adobe XD
+II. ¿que hará hoy? Continuar con Adobe XD, hacer el paso a paso
+III. ¿que dificultades ha tenido? Ninguna
 -------------------------------------------------------------------------------------------------------
 Diseñador de software: No asistio a reunion, calamidad domestica.
 I. ¿que hizo ayer?
@@ -26,60 +32,35 @@ II. ¿que hará hoy?
 III. ¿que dificultades ha tenido?
 -------------------------------------------------------------------------------------------------------
 Tester:
-I. ¿que hizo ayer? Leer la documentacion del spring, leer documentacion acerca del testing, como se
-hace, como funciona.
-II. ¿que hará hoy? Empezó a desarrollar el paso a paso.
-III. ¿que dificultades ha tenido? Ninguna.
+I. ¿que hizo ayer? Documentandose con lo del testing 
+II. ¿que hará hoy? En progreso el paso a paso
+III. ¿que dificultades ha tenido? Ninguna 
 -------------------------------------------------------------------------------------------------------
 Se desarrollo evaluación de los campos presentados por el diseñador de UI, si se necesitan mas
 campos o no, se sugirieron el campo categoria y clasificación.
-
-Enlace grabación reunión: https://drive.google.com/file/d/1m34llj75MEU9YejRKK_R7xl5sOhlRBpA/view?usp=sharing
-Fecha: 14/09/2021
--------------------------------------------------------------------------------------------------------
-Lider de equipo:
-I. ¿que hizo ayer?
-II. ¿que hará hoy? 
-III. ¿que dificultades ha tenido?
--------------------------------------------------------------------------------------------------------
-Administradora de configuración:
-I. ¿que hizo ayer? 
-II. ¿que hará hoy?
-III. ¿que dificultades ha tenido?
--------------------------------------------------------------------------------------------------------
-Diseñador de UI:
-I. ¿que hizo ayer?
-II. ¿que hará hoy?
-III. ¿que dificultades ha tenido?
--------------------------------------------------------------------------------------------------------
-Diseñador de software: No asistio a reunion, calamidad domestica.
-I. ¿que hizo ayer?
-II. ¿que hará hoy?
-III. ¿que dificultades ha tenido?
--------------------------------------------------------------------------------------------------------
-Tester:
-I. ¿que hizo ayer? 
-II. ¿que hará hoy? 
-III. ¿que dificultades ha tenido? 
 -------------------------------------------------------------------------------------------------------
 
 Enlace grabación reunión: https://drive.google.com/file/d/1ZpdwjiJoRg_EyKxhhIXQn2IO0bol_vVy/view?usp=sharing
-Fecha: 15/09/2021
+Fecha: 16/09/2021
 -------------------------------------------------------------------------------------------------------
 Lider de equipo:
-I. ¿que hizo ayer?
-II. ¿que hará hoy? 
-III. ¿que dificultades ha tenido?
+I. ¿que hizo ayer? Ya se esta terminando el paso a paso, se corrije con ayuda de Juan problema con 
+boton, se actualizo este cuadro del dia anterior y se desarrollo el diagrama de clases junto al
+diseñador de UI.
+II. ¿que hará hoy? Terminar el paso a paso, subir informacion a las plataformas.
+III. ¿que dificultades ha tenido? Dificulatades con el boton
 -------------------------------------------------------------------------------------------------------
 Administradora de configuración:
-I. ¿que hizo ayer? 
-II. ¿que hará hoy?
-III. ¿que dificultades ha tenido?
+I. ¿que hizo ayer? Paso a paso,documentacion en videos de la docente, revisando informacion subida a las
+plataformas.
+II. ¿que hará hoy? Terminar el paso a paso.
+III. ¿que dificultades ha tenido? Errores con el visual studio code.
 -------------------------------------------------------------------------------------------------------
 Diseñador de UI:
-I. ¿que hizo ayer?
-II. ¿que hará hoy?
-III. ¿que dificultades ha tenido?
+I. ¿que hizo ayer? Se finalizó el paso a paso, se compelto la interfaz, se subio informacion en 
+tablero y GitHub.
+II. ¿que hará hoy? Nueva propuesta de interfaz segun nuevas clases. 
+III. ¿que dificultades ha tenido? Un poco en la elaboracion de clases.
 -------------------------------------------------------------------------------------------------------
 Diseñador de software: No asistio a reunion, calamidad domestica.
 I. ¿que hizo ayer?
@@ -87,13 +68,13 @@ II. ¿que hará hoy?
 III. ¿que dificultades ha tenido?
 -------------------------------------------------------------------------------------------------------
 Tester:
-I. ¿que hizo ayer? 
-II. ¿que hará hoy? 
-III. ¿que dificultades ha tenido? 
+I. ¿que hizo ayer? Revisar lo de particion de equivalencia
+II. ¿que hará hoy? Paso a paso terminado, actualizacion en el Jira
+III. ¿que dificultades ha tenido? No se tiene totalmente claro lo de particion equivalente
 -------------------------------------------------------------------------------------------------------
 
 Enlace grabación reunión: https://drive.google.com/file/d/1I-HjhSMGHxD9-2Rnu5Gg_8k_MOjvbMnk/view?usp=sharing
-Fecha: 16/09/2021
+Fecha: 17/09/2021
 -------------------------------------------------------------------------------------------------------
 Lider de equipo:
 I. ¿que hizo ayer?
@@ -121,7 +102,7 @@ II. ¿que hará hoy?
 III. ¿que dificultades ha tenido? 
 -------------------------------------------------------------------------
 Enlace grabación reunión: https://drive.google.com/file/d/1RcGkA4uYs-0R8wfXMrzpH7hmX0i9KpJA/view?usp=sharing
-Fecha: 17/09/2021
+Fecha: 18/09/2021
 -------------------------------------------------------------------------------------------------------
 Lider de equipo:
 I. ¿que hizo ayer?
