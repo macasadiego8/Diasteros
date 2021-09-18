@@ -1,3 +1,4 @@
+Grabaciones Sprint II: https://drive.google.com/drive/folders/1TwJy1cB1tZajdNVVY96vOtwbMVxoJ6PK?usp=sharing
 -------------------------------------------------------------------------------------------------------
 Enlace grabación reunión: https://drive.google.com/drive/folders/1TwJy1cB1tZajdNVVY96vOtwbMVxoJ6PK
 Fecha: 13/09/2021
