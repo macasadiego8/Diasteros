@@ -105,31 +105,12 @@ III. ¿que dificultades ha tenido? Mayoria de documentacion encontrada es para v
 Se verifica los valores para las pruebas entre los miembros del equipo junto a la tester
 ------------------------------------------------------------------------------------------------------
 
-Enlace grabación reunión: https://drive.google.com/file/d/1RcGkA4uYs-0R8wfXMrzpH7hmX0i9KpJA/view?usp=sharing
-Fecha: 18/09/2021
+Enlace grabación reunión: No se grabó
+Fecha: 19/09/2021
 -------------------------------------------------------------------------------------------------------
-Lider de equipo:
-I. ¿que hizo ayer?
-II. ¿que hará hoy? 
-III. ¿que dificultades ha tenido?
+En esta reunion se discutieron aspectos a tener en cuenta en el desarrollo de la vistas del proyecto,
+como tambien los campos, se establecieron los lineamientos que se seguiran en cuanto al numero de vistas
+, los campos que se usaran, las validaciones de las pruebas y como se integraran todas las partes
+del proyecto.
 -------------------------------------------------------------------------------------------------------
-Administradora de configuración:
-I. ¿que hizo ayer? 
-II. ¿que hará hoy?
-III. ¿que dificultades ha tenido?
--------------------------------------------------------------------------------------------------------
-Diseñador de UI:
-I. ¿que hizo ayer?
-II. ¿que hará hoy?
-III. ¿que dificultades ha tenido?
--------------------------------------------------------------------------------------------------------
-Diseñador de software: No asistio a reunion, calamidad domestica.
-I. ¿que hizo ayer?
-II. ¿que hará hoy?
-III. ¿que dificultades ha tenido?
--------------------------------------------------------------------------------------------------------
-Tester:
-I. ¿que hizo ayer? 
-II. ¿que hará hoy? 
-III. ¿que dificultades ha tenido? 
--------------------------------------------------------------------------
+Esta reunion se dio entre el lider, la tester y el diseñador de UI.
