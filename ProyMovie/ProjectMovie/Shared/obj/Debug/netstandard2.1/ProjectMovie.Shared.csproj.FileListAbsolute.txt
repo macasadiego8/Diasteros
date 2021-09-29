@@ -1,0 +1,9 @@
+C:\ProysCicloIII\ProjectMovie\Shared\bin\Debug\netstandard2.1\ProjectMovie.Shared.deps.json
+C:\ProysCicloIII\ProjectMovie\Shared\bin\Debug\netstandard2.1\ProjectMovie.Shared.dll
+C:\ProysCicloIII\ProjectMovie\Shared\bin\Debug\netstandard2.1\ProjectMovie.Shared.pdb
+C:\ProysCicloIII\ProjectMovie\Shared\obj\Debug\netstandard2.1\ProjectMovie.Shared.csprojAssemblyReference.cache
+C:\ProysCicloIII\ProjectMovie\Shared\obj\Debug\netstandard2.1\ProjectMovie.Shared.AssemblyInfoInputs.cache
+C:\ProysCicloIII\ProjectMovie\Shared\obj\Debug\netstandard2.1\ProjectMovie.Shared.AssemblyInfo.cs
+C:\ProysCicloIII\ProjectMovie\Shared\obj\Debug\netstandard2.1\ProjectMovie.Shared.csproj.CoreCompileInputs.cache
+C:\ProysCicloIII\ProjectMovie\Shared\obj\Debug\netstandard2.1\ProjectMovie.Shared.dll
+C:\ProysCicloIII\ProjectMovie\Shared\obj\Debug\netstandard2.1\ProjectMovie.Shared.pdb
