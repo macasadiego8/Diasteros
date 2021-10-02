@@ -1,0 +1,11 @@
+@page "/index"
+@using ProjectMovies5.Client.Pages.Components
+@inject IServiceMovie movie
+<ServiceComponent Movies="Movies"></ServiceComponent>
+@code {
+    private List<Movie> Movies;
+    protected override void OnInitialized()
+    {
+        Movies=movie.GetMovies();
+    }
+}

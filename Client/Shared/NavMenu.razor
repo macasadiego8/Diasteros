@@ -1,0 +1,43 @@
+﻿<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="">ProjectMovie</a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="@NavMenuCssClass navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                    <span class="oi oi-home" aria-hidden="true"></span> Home
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="billboard">
+                    <span class="oi oi-plus" aria-hidden="true"></span> Cartelera
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="fetchdata">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> Servicio Películas
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="index">
+                    <span class="oi oi-arrow-bottom" aria-hidden="true"></span> Index
+                </NavLink>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}
