@@ -10,20 +10,20 @@ namespace ProjectMovies5.Client.Services
         {
             return new List<Movie>()
             {
-                new Movie(){Title="Movie 1", Synopsis="De que trata..", UriImage="/Images/Movies/movie1.jpg", ReleaseDate= new DateTime(2021,09,01), Genre="Terror", Cast="Actor1"},
-                new Movie(){Title="Movie 2", Synopsis="De que trata..", UriImage="/Images/Movies/movie2.jpg", ReleaseDate= new DateTime(2021,09,01), Genre="Terror", Cast="Actor1"},
-                new Movie(){Title="Movie 3", Synopsis="De que trata..", UriImage="/Images/Movies/movie3.jpg", ReleaseDate= new DateTime(2021,09,01), Genre="Terror", Cast="Actor1"},
-                new Movie(){Title="Movie 4", Synopsis="De que trata..", UriImage="/Images/Movies/movie4.jpg", ReleaseDate= new DateTime(2021,09,01), Genre="Terror", Cast="Actor1"},
-                new Movie(){Title="Movie 5", Synopsis="De que trata..", UriImage="/Images/Movies/movie5.jpg", ReleaseDate= new DateTime(2021,09,01), Genre="Terror", Cast="Actor1"},
-                new Movie(){Title="Movie 6", Synopsis="De que trata..", UriImage="/Images/Movies/movie6.jpg", ReleaseDate= new DateTime(2021,09,01), Genre="Terror", Cast="Actor1"},
-                new Movie(){Title="Movie 7", Synopsis="De que trata..", UriImage="/Images/Movies/movie7.jpg", ReleaseDate= new DateTime(2021,09,01), Genre="Terror", Cast="Actor1"},
-                new Movie(){Title="Movie 8", Synopsis="De que trata..", UriImage="/Images/Movies/movie8.jpg", ReleaseDate= new DateTime(2021,09,01), Genre="Terror", Cast="Actor1"},
-                new Movie(){Title="Movie 9", Synopsis="De que trata..", UriImage="/Images/Movies/movie9.jpg", ReleaseDate= new DateTime(2021,09,01), Genre="Terror", Cast="Actor1"},
-                new Movie(){Title="Movie 10", Synopsis="De que trata..", UriImage="/Images/Movies/movie10.jpg", ReleaseDate= new DateTime(2021,09,01), Genre="Terror", Cast="Actor1"},
-                new Movie(){Title="Movie 11", Synopsis="De que trata..", UriImage="/Images/Movies/movie11.jpg", ReleaseDate= new DateTime(2021,09,01), Genre="Terror", Cast="Actor1"},
-                new Movie(){Title="Movie 12", Synopsis="De que trata..", UriImage="/Images/Movies/movie12.jpg", ReleaseDate= new DateTime(2021,09,01), Genre="Terror", Cast="Actor1"},
-                new Movie(){Title="Movie 13", Synopsis="De que trata..", UriImage="/Images/Movies/movie13.jpg", ReleaseDate= new DateTime(2021,09,01), Genre="Terror", Cast="Actor1"},
-                new Movie(){Title="Movie 14", Synopsis="De que trata..", UriImage="/Images/Movies/movie14.jpg", ReleaseDate= new DateTime(2021,09,01), Genre="Terror", Cast="Actor1"}
+                new Movie(){Name="Movie 1",EnCartelera=true, Sinopsis="De que trata..", Poster="/Images/Movies/movie1.jpg", Premier= new DateTime(2021,09,01), },
+                new Movie(){Name="Movie 2",EnCartelera=true, Sinopsis="De que trata..", Poster="/Images/Movies/movie2.jpg", Premier= new DateTime(2021,09,01), },
+                new Movie(){Name="Movie 3",EnCartelera=true, Sinopsis="De que trata..", Poster="/Images/Movies/movie3.jpg", Premier= new DateTime(2021,09,01), },
+                new Movie(){Name="Movie 4",EnCartelera=true, Sinopsis="De que trata..", Poster="/Images/Movies/movie4.jpg", Premier= new DateTime(2021,09,01), },
+                new Movie(){Name="Movie 5",EnCartelera=true, Sinopsis="De que trata..", Poster="/Images/Movies/movie5.jpg", Premier= new DateTime(2021,09,01), },
+                new Movie(){Name="Movie 6",EnCartelera=true, Sinopsis="De que trata..", Poster="/Images/Movies/movie6.jpg", Premier= new DateTime(2021,09,01), },
+                new Movie(){Name="Movie 7",EnCartelera=true, Sinopsis="De que trata..", Poster="/Images/Movies/movie7.jpg", Premier= new DateTime(2021,09,01), },
+                new Movie(){Name="Movie 8",EnCartelera=true, Sinopsis="De que trata..", Poster="/Images/Movies/movie8.jpg", Premier= new DateTime(2021,09,01), },
+                new Movie(){Name="Movie 9",EnCartelera=true, Sinopsis="De que trata..", Poster="/Images/Movies/movie9.jpg", Premier= new DateTime(2021,09,01), },
+                new Movie(){Name="Movie 10",EnCartelera=true, Sinopsis="De que trata..", Poster="/Images/Movies/movie10.jpg", Premier= new DateTime(2021,09,01), },
+                new Movie(){Name="Movie 11",EnCartelera=true, Sinopsis="De que trata..", Poster="/Images/Movies/movie11.jpg", Premier= new DateTime(2021,09,01), },
+                new Movie(){Name="Movie 12",EnCartelera=true, Sinopsis="De que trata..", Poster="/Images/Movies/movie12.jpg", Premier= new DateTime(2021,09,01), },
+                new Movie(){Name="Movie 13",EnCartelera=true, Sinopsis="De que trata..", Poster="/Images/Movies/movie13.jpg", Premier= new DateTime(2021,09,01), },
+                new Movie(){Name="Movie 14",EnCartelera=true, Sinopsis="De que trata..", Poster="/Images/Movies/movie14.jpg", Premier= new DateTime(2021,09,01), }
 
             };
         }

@@ -112,14 +112,12 @@ using ProjectMovies5.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 45 "D:\mintic\ProjectMovies5\Client\Pages\Home.razor"
+#line 44 "D:\mintic\ProjectMovies5\Client\Pages\Home.razor"
        
-    private List<Movie> Movies;
-    protected override void OnInitialized()
-    {
-                Movies = movie.GetMovies();
-
-    }
+    private List<Movie> Movies;protected override void OnInitialized()
+{
+    Movies = movie.GetMovies();
+}
 
 #line default
 #line hidden

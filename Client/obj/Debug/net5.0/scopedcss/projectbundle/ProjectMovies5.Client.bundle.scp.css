@@ -4,6 +4,11 @@
 .card:hover[b-jrd8djhg0c] {
   box-shadow: 5px 5px 20px grey;
 }
+/* /Pages/Home.razor.rz.scp.css */
+.carru[b-czcsoku1ji]{
+    max-width: 75vw;
+    align-content: center;
+}
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-1lt2al6pai] {
     position: relative;

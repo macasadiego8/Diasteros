@@ -111,31 +111,13 @@ using ProjectMovies5.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 74 "D:\mintic\ProjectMovies5\Client\Pages\Components\ServiceComponent.razor"
+#line 43 "D:\mintic\ProjectMovies5\Client\Pages\Components\ServiceComponent.razor"
  
-
-
-
     [Parameter] public List<Movie> Movies { get; set; }
 
-
-
-
-
-
-
     void MovieDelete()
-
-
-
     {
-
-
-
         Console.WriteLine($"Eliminando película de la cartelera");
-
-
-
     }
 
 #line default

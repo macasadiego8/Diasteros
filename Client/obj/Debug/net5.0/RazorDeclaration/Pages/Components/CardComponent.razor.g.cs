@@ -111,7 +111,7 @@ using ProjectMovies5.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 43 "D:\mintic\ProjectMovies5\Client\Pages\Components\CardComponent.razor"
+#line 41 "D:\mintic\ProjectMovies5\Client\Pages\Components\CardComponent.razor"
     
     [Parameter] public List<Movie> Movies2{get;set;}
     public List<Movie> Movies;
@@ -121,7 +121,7 @@ using ProjectMovies5.Client.Pages.Components;
 #line hidden
 #nullable disable
 #nullable restore
-#line 48 "D:\mintic\ProjectMovies5\Client\Pages\Components\CardComponent.razor"
+#line 46 "D:\mintic\ProjectMovies5\Client\Pages\Components\CardComponent.razor"
                                                                        
     protected override async Task OnInitializedAsync()
     {
