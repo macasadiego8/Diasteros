@@ -111,7 +111,7 @@ using ProjectMovies5.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 43 "D:\mintic\ProjectMovies5\Client\Pages\Components\ServiceComponent.razor"
+#line 50 "D:\mintic\ProjectMovies5\Client\Pages\Components\ServiceComponent.razor"
  
     [Parameter] public List<Movie> Movies { get; set; }
 

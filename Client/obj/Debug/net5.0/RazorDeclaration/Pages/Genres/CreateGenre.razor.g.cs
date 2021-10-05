@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace ProjectMovies5.Client.Pages.Actors
+namespace ProjectMovies5.Client.Pages.Genres
 {
     #line hidden
     using System;
@@ -97,19 +97,32 @@ using ProjectMovies5.Client.Services;
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "D:\mintic\ProjectMovies5\Client\_Imports.razor"
+#line 2 "D:\mintic\ProjectMovies5\Client\Pages\Genres\CreateGenre.razor"
 using ProjectMovies5.Client.Pages.Components;
 
 #line default
 #line hidden
 #nullable disable
-    public partial class ShowActors : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/Genre/create")]
+    public partial class CreateGenre : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 5 "D:\mintic\ProjectMovies5\Client\Pages\Genres\CreateGenre.razor"
+      
+    private MovieGenre MovieGenre = new MovieGenre();
+
+    private void Create(){
+        Console.WriteLine($"Creando la categoría {MovieGenre.Name}");
+    }
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

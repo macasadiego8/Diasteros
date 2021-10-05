@@ -111,7 +111,7 @@ using ProjectMovies5.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 34 "D:\mintic\ProjectMovies5\Client\Shared\NavMenu.razor"
+#line 42 "D:\mintic\ProjectMovies5\Client\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

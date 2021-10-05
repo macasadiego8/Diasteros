@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "D:\\mintic\\ProjectMovies5\\server\\ProjectMovies5.Server.csproj": {}
+    "D:\\mintic\\ProjectMovies5\\Server\\ProjectMovies5.Server.csproj": {}
   },
   "projects": {
     "D:\\mintic\\ProjectMovies5\\Client\\ProjectMovies5.Client.csproj": {
@@ -86,14 +86,14 @@
         }
       }
     },
-    "D:\\mintic\\ProjectMovies5\\server\\ProjectMovies5.Server.csproj": {
+    "D:\\mintic\\ProjectMovies5\\Server\\ProjectMovies5.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\mintic\\ProjectMovies5\\server\\ProjectMovies5.Server.csproj",
+        "projectUniqueName": "D:\\mintic\\ProjectMovies5\\Server\\ProjectMovies5.Server.csproj",
         "projectName": "ProjectMovies5.Server",
-        "projectPath": "D:\\mintic\\ProjectMovies5\\server\\ProjectMovies5.Server.csproj",
+        "projectPath": "D:\\mintic\\ProjectMovies5\\Server\\ProjectMovies5.Server.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "D:\\mintic\\ProjectMovies5\\server\\obj\\",
+        "outputPath": "D:\\mintic\\ProjectMovies5\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"

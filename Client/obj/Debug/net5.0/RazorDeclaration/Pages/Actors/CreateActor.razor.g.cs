@@ -97,12 +97,13 @@ using ProjectMovies5.Client.Services;
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "D:\mintic\ProjectMovies5\Client\_Imports.razor"
+#line 2 "D:\mintic\ProjectMovies5\Client\Pages\Actors\CreateActor.razor"
 using ProjectMovies5.Client.Pages.Components;
 
 #line default
 #line hidden
 #nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/actors/create")]
     public partial class CreateActor : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -110,6 +111,21 @@ using ProjectMovies5.Client.Pages.Components;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 6 "D:\mintic\ProjectMovies5\Client\Pages\Actors\CreateActor.razor"
+      
+    private Actor Actor = new Actor();
+    void Create(){
+        Console.WriteLine($"Actor {Actor.Name}");
+        Console.WriteLine($"Fecha de nacimiento{Actor.BirthDate}");
+        Console.WriteLine($"Cantidad de créditos {Actor.KnowCredits}");
+        Console.WriteLine($"Foto base64 {Actor.Photo}");
+
+    }
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

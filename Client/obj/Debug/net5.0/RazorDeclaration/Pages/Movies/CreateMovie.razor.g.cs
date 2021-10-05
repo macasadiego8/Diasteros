@@ -123,12 +123,12 @@ using ProjectMovies5.Client.Pages.Components;
     {
 
         CategoriasNoSeleccionadas = new List<MovieGenre>(){
-new MovieGenre(){Id = 1, Name="Comedia"},
-new MovieGenre(){Id = 2, Name="Terror"},
-new MovieGenre(){Id = 3, Name="Ciencia Ficción"},
-new MovieGenre(){Id = 4, Name="Documentales"},
-new MovieGenre(){Id = 5, Name="Comedia"}
-};
+        new MovieGenre(){Id = 1, Name="Comedia"},
+        new MovieGenre(){Id = 2, Name="Terror"},
+        new MovieGenre(){Id = 3, Name="Ciencia Ficción"},
+        new MovieGenre(){Id = 4, Name="Documentales"},
+        new MovieGenre(){Id = 5, Name="Comedia"}
+        };
 
     }
 

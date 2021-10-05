@@ -97,12 +97,13 @@ using ProjectMovies5.Client.Services;
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "D:\mintic\ProjectMovies5\Client\_Imports.razor"
+#line 2 "D:\mintic\ProjectMovies5\Client\Pages\Actors\EditActor.razor"
 using ProjectMovies5.Client.Pages.Components;
 
 #line default
 #line hidden
 #nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/actors/edit/{Id:int}")]
     public partial class EditActor : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -110,6 +111,32 @@ using ProjectMovies5.Client.Pages.Components;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 6 "D:\mintic\ProjectMovies5\Client\Pages\Actors\EditActor.razor"
+       
+
+    [Parameter] public int Id { get; set; }
+    Actor Actor = new Actor();
+    protected override void OnInitialized()
+    {
+        Actor = new Actor()
+        {
+            Id = Id,
+            Name = "Actor prueba",
+            KnowCredits = 18,
+            BirthDate = DateTime.Today
+        };
+    }
+
+    void Edit()
+    {
+        Console.WriteLine("Modificando...");
+
+    }
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

@@ -107,12 +107,14 @@ using ProjectMovies5.Client.Pages.Components;
         {
             __builder.OpenElement(0, "div");
             __builder.AddAttribute(1, "class", "container-fluid");
-            __builder.OpenComponent<ProjectMovies5.Client.Shared.NavMenu>(2);
+            __builder.AddAttribute(2, "b-z5ekaurx98");
+            __builder.OpenComponent<ProjectMovies5.Client.Shared.NavMenu>(3);
             __builder.CloseComponent();
-            __builder.AddMarkupContent(3, "\r\n    ");
-            __builder.OpenElement(4, "div");
-            __builder.AddAttribute(5, "class", "content px-4");
-            __builder.AddContent(6, 
+            __builder.AddMarkupContent(4, "\r\n    ");
+            __builder.OpenElement(5, "div");
+            __builder.AddAttribute(6, "class", "content px-4");
+            __builder.AddAttribute(7, "b-z5ekaurx98");
+            __builder.AddContent(8, 
 #nullable restore
 #line 6 "D:\mintic\ProjectMovies5\Client\Shared\OtherLayout.razor"
          Body

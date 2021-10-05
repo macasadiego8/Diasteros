@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "vqHRuzaMWzf58xSz3m6FVt2x3FOYtyIMOmVMEtaJeVqgukJaaLmj0uEEiSMEHtdAjmXKNVauUqUeu8D0rxTdgg==",
+  "dgSpecHash": "43399Vl3RYiUT9qct0WabisBSzvvsy9YbILyYVLIropwT4RZlDHCD9itSDOhfkCjz/mPmE3NYY3fDHEFssAXjA==",
   "success": true,
-  "projectFilePath": "D:\\mintic\\ProjectMovies5\\server\\ProjectMovies5.Server.csproj",
+  "projectFilePath": "D:\\mintic\\ProjectMovies5\\Server\\ProjectMovies5.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.authorization\\5.0.10\\microsoft.aspnetcore.authorization.5.0.10.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\microsoft.aspnetcore.components\\5.0.10\\microsoft.aspnetcore.components.5.0.10.nupkg.sha512",

@@ -1,0 +1,11 @@
+@page "/Genre/create"
+@using ProjectMovies5.Client.Pages.Components
+
+<FormGenre MovieGenre = "MovieGenre" OnValidSubmit="Create"></FormGenre>
+@code{
+    private MovieGenre MovieGenre = new MovieGenre();
+
+    private void Create(){
+        Console.WriteLine($"Creando la categoría {MovieGenre.Name}");
+    }
+}

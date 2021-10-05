@@ -114,7 +114,7 @@ using ProjectMovies5.Client.Pages.Components;
 #line 17 "D:\mintic\ProjectMovies5\Client\Pages\Components\FormGenre.razor"
        
 
-    [Parameter] public MovieGenre Genre { get; set; }
+    [Parameter] public MovieGenre MovieGenre { get; set; }
 
     [Parameter] public EventCallback OnValidSubmit { get; set; }
 
