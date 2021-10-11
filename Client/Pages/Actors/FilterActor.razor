@@ -1,0 +1,50 @@
+@page "/actors/filter"
+@using ProjectMoviesDiasteros.Client.Pages.Components
+@inject IServiceActor actor
+<div class="container">
+    <div class="jumbotron">
+        @* Campo en el que usuario ingresa nombre o texto a buscar en la lista de objetos de la interfaz o servicio *@
+        <div class="form-group mb-3">
+            <input type="text" @bind-Value="actorName" @bind-Value:event="oninput" @onkeypress="@((KeyboardEventArgs e)=>SearchActors(e))" class="form-control" id="actorName" placeholder="Buscar actor" />                       
+        </div>        
+        <div>
+            <button type="button" class="btn btn-primary mb-2 mx-sm-3" @onclick="ShowActors">Buscar</button>
+            <button type="button" class="btn btn-secondary mb-2 mx-sm-3" @onclick="CleanFields">Cancelar</button>
+        </div>
+    </div>
+<ServiceActorComponent Actors="Actors"></ServiceActorComponent>
+</div>
+
+@code
+{
+    private List<Actor> Actors;    
+    string actorName = "";
+    
+    protected override void OnInitialized()
+    {
+        Actors = actor.GetActors();
+    }
+
+    private void ShowActors()
+    {
+        @* se hace la búsqueda de nombres que contengan los caracteres que ingresa el usuario y los enlista *@
+        Actors = actor.GetActors().Where(x => x.Name.ToLower().Contains(actorName.ToLower())).ToList();
+        Console.WriteLine($"Actor: {actorName}");
+        
+    }
+
+    private void CleanFields()
+    {
+        @* método para limpiar los campos del formulario *@
+        Actors = actor.GetActors(); @* las películas siguen estando activas así se limpien los campos *@
+        actorName = ""; @* elimina lo que el usuario ingresó *@        
+    }
+
+    private void SearchActors(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            ShowActors();
+        }
+    }
+}

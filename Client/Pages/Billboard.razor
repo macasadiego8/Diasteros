@@ -1,0 +1,53 @@
+@page "/billboard"
+@using ProjectMoviesDiasteros.Client.Pages.Components
+@inject IServiceMovie movie
+
+
+@if (Movies == null)
+{
+    <label><small class="text-muted">Buscando películas</small></label>
+    <img src="/Images/load.gif" height="40" width="40">
+}
+else if (Movies.Count == 0)
+{
+    <label><small class="text-muted">No se encontraron registros</small></label>
+}
+else
+{
+    <h5>Películas en cartelera</h5>
+    <br>
+    <ServiceComponent Movies="Movies"></ServiceComponent>
+    <div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+}
+@code
+{
+    private List<Movie> Movies;
+        
+    @* Incluir tiempo de espera para cargar contenido del componente *@
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(2000);
+        Movies = movie.GetMovies();
+    }
+    
+}

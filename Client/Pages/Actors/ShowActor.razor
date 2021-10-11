@@ -1,0 +1,50 @@
+@page "/actors/show"
+
+<div class="container">
+    <div class="jumbotron">
+        <div class="card mb-3" style="max-width: 700px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="@Actor.Photo" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">@Actor.Name</h5>
+                        <p class="card-text">@Actor.BirthDate</p>
+                        <p class="card-text"><small class="text-muted">@Actor.Biography</small></p>
+                        <p class="card-text"><small class="text-muted">Cantidad de créditos: @Actor.KnowCredits</small></p>
+                        <p class="card-text"><small class="text-muted">Películas en las que ha actuado:@Actor.MoviesPerform</small></p>
+                        <p class="card-text"><small class="text-muted">Premios que ha ganado: @Actor.Awards</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <a class="btn btn-success mb-3 ml-md-4" href="actors/edit" @onclick="@ActorEdit">Editar</a>            
+        </div>
+    </div>
+</div>
+@code
+{
+    [Parameter] public int Id { get; set; }
+    Actor Actor = new Actor();
+
+    protected override void OnInitialized()
+    {
+        Actor = new Actor()
+        {
+            Id = Id,
+            Name = "Actor Prueba",
+            KnowCredits = 18,
+            BirthDate = DateTime.Today,
+            Awards = "Oscars",
+            Biography = "vive en Hollywood",
+            MoviesPerform = "Hapiness, Hicth, Men In Black",
+            Photo = "Images/Actors/actor2.jpeg"
+        };
+    }
+    void ActorEdit()
+    {
+         Console.WriteLine($"Click para editar");
+    }
+}

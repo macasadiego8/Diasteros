@@ -1,0 +1,86 @@
+@page "/movies/filter"
+@using ProjectMoviesDiasteros.Client.Pages.Components
+@inject IServiceMovie movie
+<div class="container">
+    <div class="jumbotron">
+        @* Campo en el que usuario ingresa nombre o texto a buscar en la lista de objetos de la interfaz o servicio *@
+        <div class="form-group mb-3">
+            <input type="text" @bind-Value="movieName" @bind-Value:event="oninput"
+                @onkeypress="@((KeyboardEventArgs e)=>SearchMovies(e))" class="form-control" id="movieName"
+                placeholder="Buscar película" />
+        </div>
+        @* Lista desplegable con todas las categorías disponibles *@
+        <div class="form-group mx-sm-3 mb-3">
+            <select class="form-control" @bind="categorySelected">
+                <option value="0">Selecciona una categoría</option>
+                @foreach (var item in Categories)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+        @* Opciones de categorias de consulta de películas en checkbox *@
+        <div class="form-inline">
+            <div class="form-group mx-sm-3 mb-3">
+                <input type="checkbox" class="form-check-input" id="coming" @bind="comingSoon">
+                <label class="form-check-label" for="coming">Próximos estrenos</label>
+            </div>
+            <div class="form-group mx-sm-3 mb-3">
+                <input type="checkbox" class="form-check-input" id="billboards" @bind="onBillboard">
+                <label class="form-check-label" for="billboards">En Cartelera</label>
+            </div>
+            <div class="form-group mx-sm-3 mb-3">
+                <input type="checkbox" class="form-check-input" id="ranking" @bind="bestRanking">
+                <label class="form-check-label" for="ranking">Mejores Calificadas</label>
+            </div>
+        </div>
+        <div>
+            <button type="button" class="btn btn-primary mb-2 mx-sm-3" @onclick="ShowMovies">Buscar</button>
+            <button type="button" class="btn btn-danger mb-2 mx-sm-3" @onclick="CleanFields">Cancelar</button>
+        </div>
+    </div>
+<ServiceComponent Movies="Movies"></ServiceComponent>
+</div>
+
+@code
+{
+    private List<Movie> Movies;
+    private List<Category> Categories = new List<Category>();
+    string movieName = "";
+    string categorySelected = "";
+    private bool comingSoon = false;
+    private bool onBillboard = false;
+    private bool bestRanking = false;
+
+    protected override void OnInitialized()
+    {
+        Movies = movie.GetMovies();
+    }
+
+    private void ShowMovies()
+    {
+        @* se hace la búsqueda de nombres que contengan los caracteres que ingresa el usuario y los enlista *@
+        Movies = movie.GetMovies().Where(x => x.Name.ToLower().Contains(movieName.ToLower())).ToList();
+        Console.WriteLine($"Película: {movieName}, categoría seleccionada: {categorySelected}");
+        Console.WriteLine($"Próximos estrenos: {comingSoon}, en cartelera: {onBillboard}, mejor calificada: {bestRanking}");
+    }
+
+    private void CleanFields()
+    {
+        @* método para limpiar los campos del formulario *@
+        Movies = movie.GetMovies(); @* las películas siguen estando activas así se limpien los campos *@
+        movieName = ""; @* elimina lo que el usuario ingresó *@
+        categorySelected = "0"; @* se deja en el primer value nuevamente *@
+        comingSoon = false; @* cuando se carga la vista la opción del checkbox esta desmarcada *@
+        onBillboard = false;
+        bestRanking = false;
+    }
+
+    private void SearchMovies(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            ShowMovies();
+        }
+    }
+}

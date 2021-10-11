@@ -1,0 +1,12 @@
+C:\ProysCicloIII\ProjectMoviesDiasteros\Shared\bin\Debug\net5.0\ProjectMoviesDiasteros.Shared.deps.json
+C:\ProysCicloIII\ProjectMoviesDiasteros\Shared\bin\Debug\net5.0\ProjectMoviesDiasteros.Shared.dll
+C:\ProysCicloIII\ProjectMoviesDiasteros\Shared\bin\Debug\net5.0\ref\ProjectMoviesDiasteros.Shared.dll
+C:\ProysCicloIII\ProjectMoviesDiasteros\Shared\bin\Debug\net5.0\ProjectMoviesDiasteros.Shared.pdb
+C:\ProysCicloIII\ProjectMoviesDiasteros\Shared\obj\Debug\net5.0\ProjectMoviesDiasteros.Shared.csproj.AssemblyReference.cache
+C:\ProysCicloIII\ProjectMoviesDiasteros\Shared\obj\Debug\net5.0\ProjectMoviesDiasteros.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\ProysCicloIII\ProjectMoviesDiasteros\Shared\obj\Debug\net5.0\ProjectMoviesDiasteros.Shared.AssemblyInfoInputs.cache
+C:\ProysCicloIII\ProjectMoviesDiasteros\Shared\obj\Debug\net5.0\ProjectMoviesDiasteros.Shared.AssemblyInfo.cs
+C:\ProysCicloIII\ProjectMoviesDiasteros\Shared\obj\Debug\net5.0\ProjectMoviesDiasteros.Shared.csproj.CoreCompileInputs.cache
+C:\ProysCicloIII\ProjectMoviesDiasteros\Shared\obj\Debug\net5.0\ProjectMoviesDiasteros.Shared.dll
+C:\ProysCicloIII\ProjectMoviesDiasteros\Shared\obj\Debug\net5.0\ref\ProjectMoviesDiasteros.Shared.dll
+C:\ProysCicloIII\ProjectMoviesDiasteros\Shared\obj\Debug\net5.0\ProjectMoviesDiasteros.Shared.pdb

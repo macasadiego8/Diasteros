@@ -1,0 +1,46 @@
+@page "/movie"
+@using ProjectMoviesDiasteros.Client.Pages.Components
+<h6>Ver película</h6>
+
+<div class="container">
+    <div class="jumbotron">
+        <div class="card mb-3" style="max-width: 700px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="@Movie.Poster" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">@Movie.Name</h5>
+                        <p class="card-text">@Movie.Premier</p>
+                        <p class="card-text"><small class="text-muted">@Movie.Sinopsis</small></p>
+                        <p class="card-text"><small class="text-muted">Trailer: @Movie.Trailer</small></p>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <a class="btn btn-success mb-3 ml-md-4" href="movies/edit" @onclick="@MovieEdit">Editar</a>            
+        </div>
+    </div>
+</div>
+@code
+{
+    [Parameter] public int Id { get; set; }
+    Movie Movie = new Movie();
+
+    protected override void OnInitialized()
+    {
+        Movie = new Movie()
+        {
+            Id = Id,
+            Name = "Movie Prueba",
+            Poster = "Images/Movies/movie1.jpeg",
+            Premier = DateTime.Today             
+        };
+    }
+    void MovieEdit()
+    {
+         Console.WriteLine($"Click para editar");
+    }
+}
