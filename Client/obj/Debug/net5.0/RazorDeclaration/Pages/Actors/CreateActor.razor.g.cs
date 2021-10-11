@@ -112,20 +112,29 @@ using ProjectMovies5.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 6 "D:\mintic\ProjectMovies5\Client\Pages\Actors\CreateActor.razor"
-      
+#line 10 "D:\mintic\ProjectMovies5\Client\Pages\Actors\CreateActor.razor"
+       
     private Actor Actor = new Actor();
-    void Create(){
-        Console.WriteLine($"Actor {Actor.Name}");
-        Console.WriteLine($"Fecha de nacimiento{Actor.BirthDate}");
-        Console.WriteLine($"Cantidad de créditos {Actor.KnowCredits}");
-        Console.WriteLine($"Foto base64 {Actor.Photo}");
 
+    private async Task Create()
+    {
+        var httpResponse = await repositorio.Post("api/actors", Actor);
+        if (httpResponse.Error)
+        {
+           await mostrarMensajes.ShowErrorMessage(await httpResponse.GetBody());
+        }
+        else
+        {
+            navigationManager.NavigateTo("/actors");
+        }
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage mostrarMensajes { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie repositorio { get; set; }
     }
 }
 #pragma warning restore 1591

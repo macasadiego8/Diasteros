@@ -18,7 +18,8 @@ namespace ProjectMovies5.Shared.Entity
         [Required(ErrorMessage ="El campo {0} es requerido")]
         public string Trailer{get;set;}
         [Required (ErrorMessage ="El campo {0} es requerido")]
-        public List <MovieGenre> MovieGenre {get;set;} = new List <MovieGenre> ();
+        public List <MovieGenre> MovieGenres {get;set;} = new List <MovieGenre> ();
+        public List<Actor> Actors{get;set;}
         public string ShortName
         {
             get{

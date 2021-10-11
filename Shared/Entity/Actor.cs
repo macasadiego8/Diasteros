@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System;
+using System.Collections.Generic;
 namespace ProjectMovies5.Shared.Entity
 {
     public class Actor
@@ -15,5 +16,6 @@ namespace ProjectMovies5.Shared.Entity
         public int KnowCredits {get;set;}
         public string Biography {get;set;}
         public string Nominations {get;set;}
+        public List<Movie> Movies {get;set;}
     }
 }

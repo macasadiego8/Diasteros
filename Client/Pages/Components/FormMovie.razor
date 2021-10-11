@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col col-sm-9">
                         @* Input para ingresar el nombre de la pelicula *@
-                        <InputText class="form-control" @bind-Value="@Movie.Name"></InputText>
+                        <InputText class="form-control" @bind-Value="@Movie.Name" placeholder="Nombre de la película"></InputText>
                         <ValidationMessage For="@(()=>Movie.Name)"></ValidationMessage>
                     </div>
                     <div class="col col-sm-3">
@@ -25,7 +25,7 @@
                 <div class="row">
                     <div class="col">
                         @* Input para ingresar el trailer *@
-                        <InputText class="form-control" @bind-Value="@Movie.Trailer"></InputText>
+                        <InputText class="form-control" @bind-Value="@Movie.Trailer" placeholder="URL del trailer"></InputText>
                         <ValidationMessage For="@(()=>Movie.Trailer)"></ValidationMessage>
                     </div>
                     <div class="col">
@@ -39,7 +39,7 @@
             </div>
             @* Sinopsis de la pelicula... descripción *@
             <div class="form-group">
-                <InputTextArea class="form-control" @bind-Value="@Movie.Sinopsis"></InputTextArea>
+                <InputTextArea class="form-control" @bind-Value="@Movie.Sinopsis" placeholder="Sinopsis"></InputTextArea>
                 <ValidationMessage For="@(()=>Movie.Sinopsis)"></ValidationMessage>
             </div>
             @* Selección de categorías *@

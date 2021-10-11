@@ -2,10 +2,20 @@
 .card:hover[b-jrd8djhg0c] {
   box-shadow: 5px 5px 20px grey;
 }
+/* /Pages/Components/ServiceComponent.razor.rz.scp.css */
+.card:hover[b-tnhneh0wvc] {
+  box-shadow: 5px 5px 20px grey;
+}
 /* /Pages/Home.razor.rz.scp.css */
+@media only screen and (min-width: 1200px){
 .container-fluid[b-czcsoku1ji]{ 
   max-width: 70%;
 }
+}
+.carousel-item[b-czcsoku1ji]{
+  contain: content;
+}
+
 
 
 

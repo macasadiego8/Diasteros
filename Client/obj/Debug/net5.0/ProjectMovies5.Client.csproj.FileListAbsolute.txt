@@ -6,7 +6,6 @@ D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\ProjectMovies5.Client.csproj.Co
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\ProjectMovies5.Client.MvcApplicationPartsAssemblyInfo.cache
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\ProjectMovies5.Client.RazorComponent.input.cache
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\RazorDeclaration\App.razor.g.cs
-D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Actors\CreateActor.razor.g.cs
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Actors\EditActor.razor.g.cs
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Billboard.razor.g.cs
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Components\DataTableComponent.razor.g.cs
@@ -427,7 +426,6 @@ D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\ProjectMovies5.Client.TagHelper
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\ProjectMovies5.Client.TagHelpers.output.cache
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\ProjectMovies5.Client.RazorCoreGenerate.cache
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\Razor\App.razor.g.cs
-D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\Razor\Pages\Actors\CreateActor.razor.g.cs
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\Razor\Pages\Actors\EditActor.razor.g.cs
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\Razor\Pages\Billboard.razor.g.cs
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\Razor\Pages\Components\DataTableComponent.razor.g.cs
@@ -670,8 +668,6 @@ D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\Razor\Pages\Components\ImageCom
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\scopedcss\Pages\Home.razor.rz.scp.css
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Actors\ShowActor.razor.g.cs
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\Razor\Pages\Actors\ShowActor.razor.g.cs
-D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Components\FormActor.razor.g.cs
-D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\Razor\Pages\Components\FormActor.razor.g.cs
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\scopedcss\Shared\OtherLayout.razor.rz.scp.css
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Genres\CreateGenre.razor.g.cs
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Genres\EditGenre.razor.g.cs
@@ -679,3 +675,14 @@ D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Genres\S
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\Razor\Pages\Genres\CreateGenre.razor.g.cs
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\Razor\Pages\Genres\EditGenre.razor.g.cs
 D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\Razor\Pages\Genres\ShowGenre.razor.g.cs
+D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\scopedcss\Pages\Components\ServiceComponent.razor.rz.scp.css
+D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Components\ShowMovieComponent.razor.g.cs
+D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\Razor\Pages\Components\ShowMovieComponent.razor.g.cs
+D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Components\FormActorViejo.razor.g.cs
+D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\Razor\Pages\Components\FormActorViejo.razor.g.cs
+D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Components\FormActor.razor.g.cs
+D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\Razor\Pages\Components\FormActor.razor.g.cs
+D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Actors\CreateActorViejo.razor.g.cs
+D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\Razor\Pages\Actors\CreateActorViejo.razor.g.cs
+D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Actors\CreateActor.razor.g.cs
+D:\mintic\ProjectMovies5\Client\obj\Debug\net5.0\Razor\Pages\Actors\CreateActor.razor.g.cs

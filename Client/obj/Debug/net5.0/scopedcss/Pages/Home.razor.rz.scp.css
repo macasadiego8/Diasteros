@@ -1,6 +1,12 @@
+@media only screen and (min-width: 1200px){
 .container-fluid[b-czcsoku1ji]{ 
   max-width: 70%;
 }
+}
+.carousel-item[b-czcsoku1ji]{
+  contain: content;
+}
+
 
 
 

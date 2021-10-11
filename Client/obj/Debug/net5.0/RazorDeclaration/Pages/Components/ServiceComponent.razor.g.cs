@@ -111,13 +111,30 @@ using ProjectMovies5.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 50 "D:\mintic\ProjectMovies5\Client\Pages\Components\ServiceComponent.razor"
+#line 53 "D:\mintic\ProjectMovies5\Client\Pages\Components\ServiceComponent.razor"
  
+    string LgCol = "2";
+
+    string MdCol = "4"; 
+
+    private void showmovie(Movie movie,MouseEventArgs args){
+        Console.WriteLine($"mostrando pelicula:{movie.Name}");      
+    }
+
+
     [Parameter] public List<Movie> Movies { get; set; }
 
     void MovieDelete()
     {
         Console.WriteLine($"Eliminando película de la cartelera");
+    }
+    void ColResize()
+    {
+        if (LgCol=="2"){LgCol="4";}
+        else {LgCol="2";}
+        if (MdCol=="4"){MdCol="6";}
+        else {MdCol="4";}
+
     }
 
 #line default

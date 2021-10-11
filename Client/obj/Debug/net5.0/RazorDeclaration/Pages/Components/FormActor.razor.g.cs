@@ -111,27 +111,27 @@ using ProjectMovies5.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 31 "D:\mintic\ProjectMovies5\Client\Pages\Components\FormActor.razor"
+#line 54 "D:\mintic\ProjectMovies5\Client\Pages\Components\FormActor.razor"
        
-    string imageURL;
-    [Parameter] public Actor Actor { get; set; }
+     [Parameter] public Actor Actor { get; set; }
     [Parameter] public EventCallback OnValidSubmit { get; set; }
+    private string imageURL;
 
     protected override void OnInitialized()
     {
-        if (!string.IsNullOrEmpty(Actor.Photo))
+        if (!string.IsNullOrWhiteSpace(Actor.Photo))
         {
             imageURL = Actor.Photo;
+            Console.WriteLine(imageURL);
             Actor.Photo = null;
         }
     }
 
-    private void ImageSelected(string imageB64)
+    private void ImageSelected(string imagenBase64)
     {
-        Actor.Photo = imageB64;
+        Actor.Photo = imagenBase64;
         imageURL = null;
     }
-
 
 #line default
 #line hidden

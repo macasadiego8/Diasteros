@@ -104,7 +104,6 @@ using ProjectMovies5.Client.Pages.Components;
 #line hidden
 #nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/movie/{MovieId:int}")]
-    [Microsoft.AspNetCore.Components.RouteAttribute("/movie/{MovieId:int}/{Name}")]
     public partial class ShowMovie : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -113,18 +112,24 @@ using ProjectMovies5.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 6 "D:\mintic\ProjectMovies5\Client\Pages\Movies\ShowMovie.razor"
+#line 8 "D:\mintic\ProjectMovies5\Client\Pages\Movies\ShowMovie.razor"
                                                                 
-    [Parameter] public int Id{get;set;}
-    [Parameter] public string Name{get;set;}
+  
+    [Parameter] public int MovieID{get;set;}
+ 
+    private List<Movie> Movies;
+    private Movie movie;
 
-    protected override void OnInitialized(){
-        Console.WriteLine($"El id de la pelicula es {Id}");
-    }
+    protected override void OnInitialized()
+{
+    Movies = movieServ.GetMovies();
+    movie=Movies[MovieID];
+}
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movieServ { get; set; }
     }
 }
 #pragma warning restore 1591

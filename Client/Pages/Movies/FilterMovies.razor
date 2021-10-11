@@ -6,7 +6,7 @@
     @* Campo en el cual el usuario ingresa el nombre o texto a buscar en la lista de objetos de la interfaz o servicio
     *@
     <div class="form-group mb-3">
-        <input type="text" @bind-Value="movie_name" @bind-Value:event="oninput"
+        <input type="text" @bind="movie_name" @bind:event="oninput"
             @onkeypress="@((KeyboardEventArgs e)=>MovieSearch(e))" class="form-control" id="movie_name"
             placeholder="Buscar pelicula" />
     </div>

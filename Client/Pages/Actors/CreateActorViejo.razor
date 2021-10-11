@@ -1,0 +1,33 @@
+@page "/actors/createV"
+@using ProjectMovies5.Client.Pages.Components
+@inject IServiceMovie repositorio
+@inject NavigationManager navigationManager
+@inject IErrorMessage mostrarMensajes
+
+<FormActor Actor = "Actor" OnValidSubmit="Create"></FormActor>
+
+@code{
+    private Actor Actor = new Actor();
+   
+
+
+        private async Task Create()
+        {
+            Console.WriteLine($"Actor {Actor.Name}");
+            Console.WriteLine($"Fecha de nacimiento{Actor.BirthDate}");
+            Console.WriteLine($"Cantidad de créditos {Actor.KnowCredits}");
+            Console.WriteLine($"Foto base64 {Actor.Photo}");
+
+        var httpResponse = await repositorio.Post("api/actors", Actor);
+        if (httpResponse.Error)
+        {
+           await mostrarMensajes.ShowErrorMessage(await httpResponse.GetBody());
+        }
+        else
+        {
+            navigationManager.NavigateTo("/actors");
+        }
+        }
+
+    }
+}

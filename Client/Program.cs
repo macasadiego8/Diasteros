@@ -26,8 +26,9 @@ namespace ProjectMovies5.Client
 
         private static void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IServiceMovie,ServiceMovie>();
-            services.AddSingleton<IServiceActor,ServiceActor>();
+            services.AddScoped<IServiceMovie,ServiceMovie>();
+            services.AddScoped<IServiceActor,ServiceActor>();            
+            services.AddScoped<IErrorMessage,ErrorMessage>();
         }
     
     }

@@ -1,13 +1,20 @@
 @page "/movie/{MovieId:int}"
-@page "/movie/{MovieId:int}/{Name}"
+@inject IServiceMovie movieServ
 
 <h6>Ver pelicula</h6>
+<ShowMovieComponent movie="movie"/>
+
 @code{
     @* Se muestra el id y el nombre de la pelicula en la ruta *@
-    [Parameter] public int Id{get;set;}
-    [Parameter] public string Name{get;set;}
+  
+    [Parameter] public int MovieID{get;set;}
+ 
+    private List<Movie> Movies;
+    private Movie movie;
 
-    protected override void OnInitialized(){
-        Console.WriteLine($"El id de la pelicula es {Id}");
-    }
+    protected override void OnInitialized()
+{
+    Movies = movieServ.GetMovies();
+    movie=Movies[MovieID];
+}
 }

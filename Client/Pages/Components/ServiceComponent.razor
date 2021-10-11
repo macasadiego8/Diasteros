@@ -15,12 +15,14 @@
             <div class="row mb-3">
                 @foreach (var movie in Movies)
                 {
-                    <div class="col-lg-2 col-md-4">
+                    <div class="col-lg-@LgCol col-md-@MdCol">
                         <div class="card-flex-md-row mb-3 box-shadow h-md-200">
                             <div class="card-body d-flex flex-column align-items-start">
                                 <div class="card bg">
+                                    <a class="card-bg text-decoration-none" href="/movie/@movie.Id" @onclick="args => showmovie(movie, args)">
                                     <img src="@movie.Poster" class="img-thumbnail card-img-top" alt="Card image cap"
-                                height="auto" width="auto">
+                                    height="auto" width="auto">
+                                    </a>
                                     <div class="card-body">
                                         <h6 class="card-title">@movie.Name</h6>
                                         <div class="btn-group dropright">
@@ -31,11 +33,12 @@
                                             <div class="dropdown-item-text">@movie.Sinopsis</div>                                                                                      
                                         </div>
                                         </div>
-                                        <p class="text-muted">                                                                                                   
+                                        <p class="text-muted">                                                                                    
                                             
                                             <small>@movie.Premier</small>
                                         </p>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -48,10 +51,27 @@
 @code
 
 {
+    string LgCol = "2";
+
+    string MdCol = "4"; 
+
+    private void showmovie(Movie movie,MouseEventArgs args){
+        Console.WriteLine($"mostrando pelicula:{movie.Name}");      
+    }
+
+
     [Parameter] public List<Movie> Movies { get; set; }
 
     void MovieDelete()
     {
         Console.WriteLine($"Eliminando película de la cartelera");
+    }
+    void ColResize()
+    {
+        if (LgCol=="2"){LgCol="4";}
+        else {LgCol="2";}
+        if (MdCol=="4"){MdCol="6";}
+        else {MdCol="4";}
+
     }
 }
