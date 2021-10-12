@@ -142,34 +142,31 @@ using System.Timers;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 255 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Components\CustomTypeaHead.razor"
- 
-    [Parameter] public string Placeholder{get;set;}
-    [Parameter] public TItem Value{get;set;}
-    [Parameter] public EventCallback<TItem> ValueChanged{get;set;}
-    [Parameter] public Func<string, Task<IEnumerable<TItem>>> SearchMethod{get;set;}
-    [Parameter] public RenderFragment NotFoundTemplate{get;set;}
-    [Parameter] public RenderFragment<TItem> ResultTemplate{get;set;}
-    [Parameter] public RenderFragment<TItem> SelectedTemplate{get;set;}
-    
-    [Parameter] public RenderFragment FooterTemplate{get;set;}
-    [Parameter] public int MinimumLength{get;set;} = 1;
-    [Parameter] public int Debounce{get;set;} = 300;
-    [Parameter] public int MaximumSuggestions{get;set;} = 25;
-    [Parameter] public bool DisplayClear{get;set;} = true;
-
-    protected bool IsSearching{get; private set;} = false;
-    protected bool IsShowingSuggestions{get; private set;} = false;
-    protected bool IsShowingSearchbar{get; private set;} = true;
-    protected bool IsShowingMask{get; private set;} = false;
-    protected TItem[] Suggestions{get; set;} = new TItem[0];
+#line 267 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Components\CustomTypeaHead.razor"
+      
+    [Parameter] public string Placeholder { get; set; }
+    [Parameter] public TItem Value { get; set; }
+    [Parameter] public EventCallback<TItem> ValueChanged { get; set; }
+    [Parameter] public Func<string, Task<IEnumerable<TItem>>> SearchMethod { get; set; }
+    [Parameter] public RenderFragment NotFoundTemplate { get; set; }
+    [Parameter] public RenderFragment<TItem> ResultTemplate { get; set; }
+    [Parameter] public RenderFragment<TItem> SelectedTemplate { get; set; }
+    [Parameter] public RenderFragment FooterTemplate { get; set; }
+    [Parameter] public int MinimumLength { get; set; } = 1;
+    [Parameter] public int Debounce { get; set; } = 300;
+    [Parameter] public int MaximumSuggestions { get; set; } = 25;
+    [Parameter] public bool DisplayClear { get; set; } = true;
+    protected bool IsSearching { get; private set; } = false;
+    protected bool IsShowingSuggestions { get; private set; } = false;
+    protected bool IsShowingSearchbar { get; private set; } = true;
+    protected bool IsShowingMask { get; private set; } = false;
+    protected TItem[] Suggestions { get; set; } = new TItem[0];
     protected string SearchText
     {
         get => _searchText;
         set
         {
             _searchText = value;
-
             if (value.Length == 0)
             {
                 _debounceTimer.Stop();
@@ -184,38 +181,36 @@ using System.Timers;
     }
     protected ElementReference searchInput;
     protected ElementReference typeahead;
-
     private Timer _debounceTimer;
     private string _searchText = string.Empty;
-
     protected override void OnInitialized()
     {
         if (SearchMethod == null)
         {
-            throw new InvalidOperationException($"{GetType()} requires a {nameof(SearchMethod)} parameter");
+            throw new InvalidOperationException($"{GetType()} requires a {nameof(SearchMethod)} parameter.");
         }
         if (ResultTemplate == null)
         {
-            throw new InvalidOperationException($"{GetType()} requires a {nameof(ResultTemplate)} parameter");            
+            throw new InvalidOperationException($"{GetType()} requires a {nameof(ResultTemplate)} parameter.");
         }
         _debounceTimer = new Timer();
         _debounceTimer.Interval = Debounce;
         _debounceTimer.AutoReset = false;
         _debounceTimer.Elapsed += Search;
-
-        Initialized();        
+        
+        Initialize();
     }
     protected override void OnParametersSet()
     {
-        Initialized();
+        Initialize();
     }
-    private void Initialized()
+    private void Initialize()
     {
         IsShowingSuggestions = false;
         if (Value == null)
         {
             IsShowingMask = false;
-            IsShowingSearchbar = true;            
+            IsShowingSearchbar = true;
         }
         else
         {
@@ -226,20 +221,17 @@ using System.Timers;
     protected void HandleClickOnMask()
     {
         IsShowingMask = false;
-        IsShowingSearchbar = true;        
+        IsShowingSearchbar = true;
     }
     protected async Task ShowMaximumSuggestions()
     {
         IsShowingSuggestions = !IsShowingSuggestions;
-
         if (IsShowingSuggestions)
         {
             SearchText = "";
             IsSearching = true;
             await InvokeAsync(StateHasChanged);
-
             Suggestions = (await SearchMethod?.Invoke(_searchText)).Take(MaximumSuggestions).ToArray();
-
             IsSearching = false;
             await InvokeAsync(StateHasChanged);
         }
@@ -251,28 +243,27 @@ using System.Timers;
             IsShowingSuggestions = true;
         }
     }
-    protected async Task HandleKeyUpOnSuggestions(KeyboardEventArgs args, TItem item)
+    protected async Task HandleKeyUpOnSuggestion(KeyboardEventArgs args, TItem item)
     {
-        //Maybe on any key except Tab and Enter, continue the typing
-
-        switch (args.Key)
+        // Maybe on any key except Tab and Enter, continue the typing option.
+        switch(args.Key)
         {
             case "Enter":
-            await SelectResult(item);
+                await SelectResult(item);
                 break;
             case "Escape":
-            case "Backscape":
+            case "Backspace":
             case "Delete":
-                Initialized();
+            Initialize();
                 break;
             default:
                 break;
-        }        
+        }
     }
     protected async Task HandleKeyUpOnShowMaximum(KeyboardEventArgs args)
     {
         if (args.Key == "Enter")
-            await ShowMaximumSuggestions();        
+        await ShowMaximumSuggestions();
     }
     protected string GetSelectedSuggestionClass(TItem item)
     {
@@ -287,7 +278,6 @@ using System.Timers;
         IsSearching = true;
         await InvokeAsync(StateHasChanged);
         Suggestions = (await SearchMethod?.Invoke(_searchText)).Take(MaximumSuggestions).ToArray();
-
         IsSearching = false;
         IsShowingSuggestions = true;
         await InvokeAsync(StateHasChanged);
@@ -300,27 +290,26 @@ using System.Timers;
     protected bool ShouldShowSuggestions()
     {
         return IsShowingSuggestions &&
-                Suggestions.Any();
+        Suggestions.Any();
     }
     private bool HasValidSearch => !string.IsNullOrWhiteSpace(SearchText) && SearchText.Length >= MinimumLength;
-
     private bool IsSearchingOrDebouncing => IsSearching || _debounceTimer.Enabled;
-
+    
     protected bool ShowNotFound()
     {
         return IsShowingSuggestions &&
-               HasValidSearch &&
-               !IsSearchingOrDebouncing &&
-               !Suggestions.Any();
+        HasValidSearch &&
+        !IsSearchingOrDebouncing &&
+        !Suggestions.Any();
     }
     protected void OnFocusOut(object sender, EventArgs e)
     {
-        Initialized();
+        Initialize();
         InvokeAsync(StateHasChanged);
     }
     protected void OnEscape(object sender, EventArgs e)
     {
-        Initialized();
+        Initialize();
         InvokeAsync(StateHasChanged);
     }
     public void Dispose()
