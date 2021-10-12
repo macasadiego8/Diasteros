@@ -1,0 +1,52 @@
+<div class="jumbotron">
+    @if (Movies == null)
+    {
+        <label><small class="text-muted">Buscando películas</small></label>
+        <img src="/Images/load.gif" height="40" width="40">
+    }else if (Movies.Count == 0)
+    {
+        <label><small class="text-muted">No se encontraron registros</small></label>
+    }
+    else
+    {
+        <div class="container-fluid">
+            <div class="row mb-3">
+                @foreach (var movie in Movies)
+                {
+                    <div class="col-lg-2 col-md-4">
+                        <div class="card-flex-md-row mb-3 box-shadow h-md-200">
+                            <div class="card-body d-flex flex-column align-items-start">
+                                <div class="card bg">
+                                    <img src="@movie.Poster" class="img-thumbnail card-img-top" alt="Card image cap" height="auto" width="auto">
+                                    <div class="card-body">
+                                        <h6 class="card-title">@movie.Name</h6>
+                                        <p class="text-muted">
+                                            @movie.Sinopsis
+                                            <br>
+                                            @movie.MovieGenres                                            
+                                            <br>
+                                            <small>@movie.Premier</small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>
+@code
+{   
+    [Parameter] public List<Movie> Movies2{get;set;}
+    public List<Movie> Movies;
+    @* Función que retorna lista de películas *@
+    
+    @* Incluir tiempo de espera para cargar contenido del componente *@
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(500);
+        Movies = Movies2;
+    }
+}

@@ -1,0 +1,51 @@
+﻿<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+    <a class="navbar-brand" href="">ProjectMovies</a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="@NavMenuCssClass navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                    <span class="oi oi-home" aria-hidden="true"></span> Home
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="billboard">
+                    <span class="oi oi-plus" aria-hidden="true"></span> Cartelera
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <NavLink class="nav-link" href="movies/filter">
+                    <span class="oi oi-list-rich" aria-hidden="true"></span> Buscar Películas
+                </NavLink>
+            </li>
+            <li class="nav-item">
+                <div class="dropdown show">
+                    <a class="btn btn-secondary dropdown-toggle bg-dark" href="#" role="button" id="dropdownMenuLink"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Crear
+                    </a>
+                    <div class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item bg-dark" href="movies/create">Crear Pelicula</a>
+                        <a class="dropdown-item bg-dark" href="actors/create">Crear Actor</a>
+                        <a class="dropdown-item bg-dark" href="genre/create">Crear Genero</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

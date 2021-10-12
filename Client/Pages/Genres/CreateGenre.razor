@@ -1,0 +1,28 @@
+@page "/Genre/create"
+@using ProjectMovies5.Client.Pages.Components
+@inject IServiceMovie movie
+@inject IErrorMessage showMessage
+@inject NavigationManager navigationManager
+
+<FormGenre MovieGenre = "MovieGenre" OnValidSubmit="Create"></FormGenre>
+@code {
+
+    private MovieGenre MovieGenre = new MovieGenre();
+
+    private async Task Create()
+    {
+        var httpResponse = await movie.Post("api/MovieGenres", MovieGenre);
+        if (httpResponse.Error)
+        {
+            var body = await httpResponse.GetBody();
+            await showMessage.ShowErrorMessage(body);
+        }
+        else
+        {
+            navigationManager.NavigateTo("/categories");
+
+        }
+        Console.WriteLine($"Creando la categoría {MovieGenre.Name}");
+
+    }
+}
