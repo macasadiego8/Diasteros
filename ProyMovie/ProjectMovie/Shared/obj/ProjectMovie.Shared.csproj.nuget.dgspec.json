@@ -1,0 +1,58 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\ProysCicloIII\\ProjectMovie\\Shared\\ProjectMovie.Shared.csproj": {}
+  },
+  "projects": {
+    "C:\\ProysCicloIII\\ProjectMovie\\Shared\\ProjectMovie.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\ProysCicloIII\\ProjectMovie\\Shared\\ProjectMovie.Shared.csproj",
+        "projectName": "ProjectMovie.Shared",
+        "projectPath": "C:\\ProysCicloIII\\ProjectMovie\\Shared\\ProjectMovie.Shared.csproj",
+        "packagesPath": "C:\\Users\\Daniel Fajardo\\.nuget\\packages\\",
+        "outputPath": "C:\\ProysCicloIII\\ProjectMovie\\Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Daniel Fajardo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.412\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

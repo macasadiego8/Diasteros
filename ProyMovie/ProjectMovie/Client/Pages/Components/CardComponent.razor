@@ -1,0 +1,72 @@
+<div class="jumbotron">
+    @if (Movies == null)
+    {
+        <label><small class="text-muted">Buscando películas</small></label>
+        <img src="/Images/load.gif" height="40" width="40">
+    }else if (Movies.Count == 0)
+    {
+        <label><small class="text-muted">No se encontraron registros</small></label>
+    }
+    else
+    {
+        <div class="container-fluid">
+            <div class="row mb-3">
+                @foreach (var movie in Movies)
+                {
+                    <div class="col-md-3">
+                        <div class="card-flex-md-row mb-3 box-shadow h-md-200">
+                            <div class="card-body d-flex flex-column align-items-start">
+                                <div class="card">
+                                    <img src="@movie.Image" class="img-thumbnail card-img-top" alt="Card image cap" height="250" width="250">
+                                    <div class="card-body">
+                                        <h6 class="card-title">@movie.Name</h6>
+                                        <p class="text-muted">
+                                            @movie.Sinopsis
+                                            <br>
+                                            @movie.Category
+                                            <br>
+                                            <small>@movie.Casting</small>
+                                            <br>
+                                            <small>@movie.Premier</small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>
+@code
+{
+    public List<Movie> Movies;
+    @* Función que retorna lista de películas *@
+    private List<Movie> GetMovies()
+    {
+        return new List<Movie>()
+        {
+            new Movie(){Name="Movie 1", Sinopsis="De que trata..", Image="/Images/Movies/movie1.jpg", Premier= new DateTime(2021,09,01), Category="Terror", Casting="Actor1"},
+            new Movie(){Name="Movie 2", Sinopsis="De que trata..", Image="/Images/Movies/movie2.jpg", Premier= new DateTime(2021,09,01), Category="Terror", Casting="Actor1"},
+            new Movie(){Name="Movie 3", Sinopsis="De que trata..", Image="/Images/Movies/movie3.jpg", Premier= new DateTime(2021,09,01), Category="Terror", Casting="Actor1"},
+            new Movie(){Name="Movie 4", Sinopsis="De que trata..", Image="/Images/Movies/movie4.jpg", Premier= new DateTime(2021,09,01), Category="Terror", Casting="Actor1"},
+            new Movie(){Name="Movie 5", Sinopsis="De que trata..", Image="/Images/Movies/movie5.jpg", Premier= new DateTime(2021,09,01), Category="Terror", Casting="Actor1"},
+            new Movie(){Name="Movie 6", Sinopsis="De que trata..", Image="/Images/Movies/movie6.jpg", Premier= new DateTime(2021,09,01), Category="Terror", Casting="Actor1"},
+            new Movie(){Name="Movie 7", Sinopsis="De que trata..", Image="/Images/Movies/movie7.jpg", Premier= new DateTime(2021,09,01), Category="Terror", Casting="Actor1"},
+            new Movie(){Name="Movie 8", Sinopsis="De que trata..", Image="/Images/Movies/movie8.jpg", Premier= new DateTime(2021,09,01), Category="Terror", Casting="Actor1"},
+            new Movie(){Name="Movie 9", Sinopsis="De que trata..", Image="/Images/Movies/movie9.jpg", Premier= new DateTime(2021,09,01), Category="Terror", Casting="Actor1"},
+            new Movie(){Name="Movie 10", Sinopsis="De que trata..", Image="/Images/Movies/movie10.jpg", Premier= new DateTime(2021,09,01), Category="Terror", Casting="Actor1"},
+            new Movie(){Name="Movie 11", Sinopsis="De que trata..", Image="/Images/Movies/movie11.jpg", Premier= new DateTime(2021,09,01), Category="Terror", Casting="Actor1"},
+            new Movie(){Name="Movie 12", Sinopsis="De que trata..", Image="/Images/Movies/movie12.jpg", Premier= new DateTime(2021,09,01), Category="Terror", Casting="Actor1"},
+            new Movie(){Name="Movie 13", Sinopsis="De que trata..", Image="/Images/Movies/movie13.jpg", Premier= new DateTime(2021,09,01), Category="Terror", Casting="Actor1"},
+            new Movie(){Name="Movie 14", Sinopsis="De que trata..", Image="/Images/Movies/movie14.jpg", Premier= new DateTime(2021,09,01), Category="Terror", Casting="Actor1"}
+        };
+    }
+    @* Incluir tiempo de espera para cargar contenido del componente *@
+    protected override async Task OnInitializedAsync()
+    {
+        await Task.Delay(2000);
+        Movies = GetMovies();
+    }
+}
