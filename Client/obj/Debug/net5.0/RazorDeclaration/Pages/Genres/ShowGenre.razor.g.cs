@@ -97,13 +97,13 @@ using ProjectMovies5.Client.Services;
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "D:\mintic\Diasteros-devAGG\Client\_Imports.razor"
+#line 2 "D:\mintic\Diasteros-devAGG\Client\Pages\Genres\ShowGenre.razor"
 using ProjectMovies5.Client.Pages.Components;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/genre")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/genres")]
     public partial class ShowGenre : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -111,6 +111,41 @@ using ProjectMovies5.Client.Pages.Components;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 34 "D:\mintic\Diasteros-devAGG\Client\Pages\Genres\ShowGenre.razor"
+       
+
+    public List<MovieGenre> MovieGenres { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await Load();
+    }
+    private async Task Load()
+    {
+        var responseHttp = await movie.Get<List<MovieGenre>>("api/moviegenres");
+        MovieGenres = responseHttp.Response;
+    }
+
+    private async Task DeleteMovieGenre(MovieGenre moviegenre)    {
+
+        var responseHttp = await movie.Delete($"api/moviegenres/{moviegenre.Id}");
+        if (responseHttp.Error)
+        {
+
+            await showMessage.ShowErrorMessage(await responseHttp.GetBody());
+        }
+        else
+        {
+            await Load();
+        }
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie { get; set; }
     }
 }
 #pragma warning restore 1591

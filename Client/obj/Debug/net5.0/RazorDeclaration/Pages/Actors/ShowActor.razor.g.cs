@@ -97,7 +97,7 @@ using ProjectMovies5.Client.Services;
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "D:\mintic\Diasteros-devAGG\Client\_Imports.razor"
+#line 2 "D:\mintic\Diasteros-devAGG\Client\Pages\Actors\ShowActor.razor"
 using ProjectMovies5.Client.Pages.Components;
 
 #line default
@@ -111,6 +111,56 @@ using ProjectMovies5.Client.Pages.Components;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 34 "D:\mintic\Diasteros-devAGG\Client\Pages\Actors\ShowActor.razor"
+       
+
+    public List<Actor> Actors { get; set; }
+
+    protected async override Task OnInitializedAsync()
+
+    {
+
+        await Load();
+
+    }
+
+    private async Task Load()
+
+    {
+
+        var responseHttp = await movie.Get<List<Actor>>("api/actors");
+
+        Actors = responseHttp.Response;
+
+    }
+
+    private async Task DeleteActor(Actor Actor)
+    {
+
+        var responseHttp = await movie.Delete($"api/actors/{Actor.Id}");
+
+        if (responseHttp.Error)
+
+        {
+
+            await showMessage.ShowErrorMessage(await responseHttp.GetBody());
+
+        }
+        else
+        {
+
+            await Load();
+
+        }
+
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie { get; set; }
     }
 }
 #pragma warning restore 1591

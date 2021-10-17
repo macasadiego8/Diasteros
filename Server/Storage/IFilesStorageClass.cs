@@ -10,6 +10,7 @@ namespace ProjectMovies5.Server.Storage
     {
          Task<string> SaveFile(byte[] contenido, string extension, string nombreCarpeta);
          Task DeleteFile(string ruta, string nombreCarpeta);
+         /* Task DeleteFile(string ruta, string nombreCarpeta); */
          Task<string> EditFile(byte[] contenido,string extension, string nombreCarpeta,string ruta);
     }
 }

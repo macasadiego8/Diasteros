@@ -1,0 +1,20 @@
+@page "/categories/edit/{Id:int}"
+@using ProjectMovies5.Client.Pages.Components
+
+<FormGenre MovieGenre = "Genre" OnValidSubmit="Edit"></FormGenre>
+@code{
+
+    [Parameter] public int Id{get;set;}
+    private MovieGenre Genre;
+
+    protected override void OnInitialized(){
+        Genre = new MovieGenre(){
+            Id= Id,
+            Name = "Ciencia ficción"
+        };
+    }
+    
+    private void Edit(){
+        Console.WriteLine($"Actualizando la categoría Id {Genre.Id} nombre {Genre.Name}");
+    }
+}

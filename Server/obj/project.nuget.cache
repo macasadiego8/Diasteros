@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1xFJCpCjVaK77X9YdaCCdvEyjJjvgIfgfn64whj4o+yXsD5EDm/Q74xys9lejqpk8RVNwJd9r/nMm5z47U++Ww==",
+  "dgSpecHash": "Yo5TjvVzN7QGF53NdJWZG8d2eyppoh09+As6PVSvb9zgnCKvptr8be/idtBt7x8A5ZvYhu1na+n18xV4iH/dUA==",
   "success": true,
-  "projectFilePath": "D:\\mintic\\Diasteros-devAGG\\server\\ProjectMovies5.Server.csproj",
+  "projectFilePath": "D:\\mintic\\Diasteros-devAGG\\Server\\ProjectMovies5.Server.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\user\\.nuget\\packages\\azure.core\\1.19.0\\azure.core.1.19.0.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\azure.storage.blobs\\12.10.0\\azure.storage.blobs.12.10.0.nupkg.sha512",

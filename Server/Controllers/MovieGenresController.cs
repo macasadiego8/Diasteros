@@ -52,14 +52,14 @@ namespace ProjectMovies5.Server.Controllers
             return NoContent();
         }
         
-/*         [HttpDelete("{id}")]
+        [HttpDelete("{id}")]
         public async Task <ActionResult> Delete (int id){
-            var exists = await ContextCallback.MovieGenres.AnyAsync(x=>x.Id==id);
+            var exists = await context.MovieGenres.AnyAsync(x=>x.Id==id);
             //si no existe un registro con ese id
             if(!exists){return NotFound();}
-            ContextStack.Remove(new MovieGenre {Id=id});
-            await ContractException.SaveChangesAsync();
+            context.Remove(new MovieGenre {Id=id});
+            await context.SaveChangesAsync();
             return NoContent();
-            } */
+            } 
     }
 }

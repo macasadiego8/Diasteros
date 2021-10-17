@@ -15,7 +15,7 @@ namespace ProjectMovies5.Server.Controllers
     [Route("api/[controller]")]
     public class MoviesController : ControllerBase
     {
-    private readonly ApplicationDbContext context;
+        private readonly ApplicationDbContext context;
         private readonly IFilesStorageClass FilesStorage;
         /*se crea para el almacenamiento local de multimedia*/
         private readonly string carpeta = "movies";
@@ -38,9 +38,16 @@ namespace ProjectMovies5.Server.Controllers
             return movie.Id;
         }
 
+        /* Paginacion o cantidad de peliculas*/
+
         [HttpGet]
-        public async Task<ActionResult<FilterMovie>>Get(){
-            /* Paginacion o cantidad de peliculas*/
+        public async Task<ActionResult>Get(){            
+           var peliculas = await context.Movies.ToListAsync();
+           return Ok(peliculas);
+        }
+
+/*         [HttpGet]
+        public async Task<ActionResult<FilterMovie>>Get(){            
             var limit = 10;
             var peliculasEnCartelera = await context.Movies.Where(x=>x.EnCartelera).Take(limit).OrderByDescending(x=>x.Premier).ToListAsync();
             var currentDate=DateTime.Today;
@@ -50,20 +57,18 @@ namespace ProjectMovies5.Server.Controllers
                 ProximosEstrenos =proximosEstrenos
             };
             return response;
-        }
+        } */
 
         /* consultar por id*/
-/*             [HttpGet("{id}")]
-            public async Task<ActionResult<>>Get(int id){
-                var movie = await ContractException.Movies.Where(x=>x.Id ==id)
-                .Include(x=>MovieGenre).ThenInclude(x=> x.MovieGenre)
-                .Include(x=>MoviesActor).ThenInclude(x=> x.Actor).FirstOrDegaultAsync();
+          /*   [HttpGet("{id}")]
+            public async Task<ActionResult>Get(int id){
+                var movie = await context.Movies.Where(x=>x.Id ==id)
+                .Include(x=>MovieGenres).ThenInclude(x=> x.Genre)
+                .Include(x=>Actors).ThenInclude(x=> x.Actor).FirstOrDefaultAsync();
 
                 if (movie == null) {return NotFound();}
-                var average = 5;
-                var userVote =5;
-                movie.MoviesActor = movie.MoviesActor.OrderBy(x=> x.Orden).ToList();
-            } */
+                return NoContent();
+            }  */
 
 
      

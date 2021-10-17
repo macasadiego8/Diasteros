@@ -26,12 +26,12 @@ namespace ProjectMovies5.Server.Storage
             if (!Directory.Exists(folder))
             {
                 Directory.CreateDirectory(folder);                
-            }
+            }            
             string routePhoto = Path.Combine(folder, fileName);
             await File.WriteAllBytesAsync(routePhoto, contenido); 
             var uriAzure = $"{httpContextAccessor.HttpContext.Request.Scheme}://{httpContextAccessor.HttpContext.Request.Host}";
             var uriLocal = Path.Combine(uriAzure, nombreCarpeta, fileName);
-            return uriLocal;
+            return uriLocal; 
         }
 
         public Task DeleteFile(string ruta, string nombreCarpeta){

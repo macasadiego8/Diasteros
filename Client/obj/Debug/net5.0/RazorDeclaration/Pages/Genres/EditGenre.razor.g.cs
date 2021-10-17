@@ -103,7 +103,7 @@ using ProjectMovies5.Client.Pages.Components;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/categories/edit/{Id:int}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/genres/edit/{Id:int}")]
     public partial class EditGenre : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -112,26 +112,50 @@ using ProjectMovies5.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 5 "D:\mintic\Diasteros-devAGG\Client\Pages\Genres\EditGenre.razor"
-      
-
-    [Parameter] public int Id{get;set;}
+#line 14 "D:\mintic\Diasteros-devAGG\Client\Pages\Genres\EditGenre.razor"
+       
+    [Parameter] public int Id { get; set; }
     private MovieGenre Genre;
+    protected async override Task OnInitializedAsync()
+    {
+        var responseHttp = await movie.Get<MovieGenre>($"api/moviegenres/{Id}");
+        if (responseHttp.Error)
+        {
+            if (responseHttp.HttpResponseMessage.StatusCode ==
+            System.Net.HttpStatusCode.NotFound)
+            {
+                navigationManager.NavigateTo("genres");
+            }
+            else
+            {
+                await showMessage.ShowErrorMessage(await responseHttp.GetBody());
+            }
+        }
+        else
+        {
+            Genre = responseHttp.Response;
+        }
+    }
+    private async Task Edit()
+    {
+        var responseHttp = await movie.Put("api/moviegenres", Genre);
+        if (responseHttp.Error)
+        {
+            await showMessage.ShowErrorMessage(await responseHttp.GetBody());
+        }
+        else
+        {
 
-    protected override void OnInitialized(){
-        Genre = new MovieGenre(){
-            Id= Id,
-            Name = "Ciencia ficción"
-        };
-    }
-    
-    private void Edit(){
-        Console.WriteLine($"Actualizando la categoría Id {Genre.Id} nombre {Genre.Name}");
-    }
+        navigationManager.NavigateTo("genres");
+}
+}
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie { get; set; }
     }
 }
 #pragma warning restore 1591

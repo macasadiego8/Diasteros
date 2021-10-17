@@ -31,6 +31,8 @@ namespace ProjectMovies5.Server
             services.AddDbContext<ApplicationDbContext>(options=>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IFilesStorageClass,FilesStorageClass>();
+            /* services.AddScoped<IFilesStorageClass,FilesLocalStorage>(); */
+            /* services.AddHttpContextAccesor(); */
             services.AddControllersWithViews();
             services.AddRazorPages();
           

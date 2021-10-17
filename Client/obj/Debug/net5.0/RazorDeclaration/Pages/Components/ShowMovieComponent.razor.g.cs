@@ -111,7 +111,7 @@ using ProjectMovies5.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 19 "D:\mintic\Diasteros-devAGG\Client\Pages\Components\ShowMovieComponent.razor"
+#line 20 "D:\mintic\Diasteros-devAGG\Client\Pages\Components\ShowMovieComponent.razor"
       
     [Parameter]
     public Movie movie{get;set;}

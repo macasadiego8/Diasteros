@@ -127,7 +127,7 @@ using ProjectMovies5.Client.Pages.Components;
         }
         else
         {
-            navigationManager.NavigateTo("/categories");
+            navigationManager.NavigateTo("/genres");
 
         }
         Console.WriteLine($"Creando la categoría {MovieGenre.Name}");

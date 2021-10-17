@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0YOl07yfqW80cJAvlpHCt8TpLqAXfMgYRXhiTbdvREBMyk9Zdf7dsIsCb2CK3zPTw7GV9M5XbsKLHTbeukFCyA==",
+  "dgSpecHash": "oOAUt8bts0iz1Ox6nDBuKjI7G3cyNurZU5OT/vGt2Yw/knNMeHrhRIvbr2Ze6zmVJx9Bw92lIG9i0S2mGHiJ9w==",
   "success": true,
   "projectFilePath": "D:\\mintic\\Diasteros-devAGG\\Client\\ProjectMovies5.Client.csproj",
   "expectedPackageFiles": [
@@ -30,7 +30,7 @@
     "C:\\Users\\user\\.nuget\\packages\\microsoft.jsinterop.webassembly\\5.0.10\\microsoft.jsinterop.webassembly.5.0.10.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512",
     "C:\\Users\\user\\.nuget\\packages\\system.net.http.json\\5.0.0\\system.net.http.json.5.0.0.nupkg.sha512",
-    "C:\\Users\\user\\.nuget\\packages\\microsoft.netcore.app.runtime.browser-wasm\\5.0.10\\microsoft.netcore.app.runtime.browser-wasm.5.0.10.nupkg.sha512"
+    "C:\\Users\\user\\.nuget\\packages\\microsoft.netcore.app.runtime.browser-wasm\\5.0.11\\microsoft.netcore.app.runtime.browser-wasm.5.0.11.nupkg.sha512"
   ],
   "logs": []
 }

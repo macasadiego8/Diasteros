@@ -6805,11 +6805,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\mintic\\Diasteros-devAGG\\server\\ProjectMovies5.Server.csproj",
+      "projectUniqueName": "D:\\mintic\\Diasteros-devAGG\\Server\\ProjectMovies5.Server.csproj",
       "projectName": "ProjectMovies5.Server",
-      "projectPath": "D:\\mintic\\Diasteros-devAGG\\server\\ProjectMovies5.Server.csproj",
+      "projectPath": "D:\\mintic\\Diasteros-devAGG\\Server\\ProjectMovies5.Server.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "D:\\mintic\\Diasteros-devAGG\\server\\obj\\",
+      "outputPath": "D:\\mintic\\Diasteros-devAGG\\Server\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -6890,7 +6890,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

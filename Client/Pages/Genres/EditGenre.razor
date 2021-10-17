@@ -1,20 +1,51 @@
-@page "/categories/edit/{Id:int}"
+@page "/genres/edit/{Id:int}"
 @using ProjectMovies5.Client.Pages.Components
-
-<FormGenre MovieGenre = "Genre" OnValidSubmit="Edit"></FormGenre>
-@code{
-
-    [Parameter] public int Id{get;set;}
-    private MovieGenre Genre;
-
-    protected override void OnInitialized(){
-        Genre = new MovieGenre(){
-            Id= Id,
-            Name = "Ciencia ficción"
-        };
-    }
-    
-    private void Edit(){
-        Console.WriteLine($"Actualizando la categoría Id {Genre.Id} nombre {Genre.Name}");
-    }
+@inject IServiceMovie movie
+@inject IErrorMessage showMessage
+@inject NavigationManager navigationManager
+@if (Genre == null)
+{
+    <div class="alert alert-info" role="alert">Cargando</div>
 }
+else
+{
+    <FormGenre MovieGenre = "Genre" OnValidSubmit="Edit"></FormGenre>
+}
+@code {
+    [Parameter] public int Id { get; set; }
+    private MovieGenre Genre;
+    protected async override Task OnInitializedAsync()
+    {
+        var responseHttp = await movie.Get<MovieGenre>($"api/moviegenres/{Id}");
+        if (responseHttp.Error)
+        {
+            if (responseHttp.HttpResponseMessage.StatusCode ==
+            System.Net.HttpStatusCode.NotFound)
+            {
+                navigationManager.NavigateTo("genres");
+            }
+            else
+            {
+                await showMessage.ShowErrorMessage(await responseHttp.GetBody());
+            }
+        }
+        else
+        {
+            Genre = responseHttp.Response;
+        }
+    }
+    private async Task Edit()
+    {
+        var responseHttp = await movie.Put("api/moviegenres", Genre);
+        if (responseHttp.Error)
+        {
+            await showMessage.ShowErrorMessage(await responseHttp.GetBody());
+        }
+        else
+        {
+
+        navigationManager.NavigateTo("genres");
+}
+}
+}
+

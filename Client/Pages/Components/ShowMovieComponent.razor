@@ -3,13 +3,14 @@
         Nombre:
         <small class="text-muted">@movie.Name</small>
     </h3>
-    <div class="row">
+    <div class="row m-3 lg-m-10">
     <div class="col">    
     <img src=@movie.Poster class="imgfluid" alt="Responsive image">
     </div>
     <div class="col"> 
     <blockquote class="blockquote text-center">
-        <p class="mb-0">Sinopsis: @movie.Sinopsis</p>
+        <p class="mb-0 text-justify">Sinopsis: @movie.Sinopsis</p>
+        <br>
         <footer class="blockquotefooter">Fecha de Estreno <cite
                 title="Source Title">@movie.Premier</cite></footer>
     </blockquote>

@@ -1,46 +1,66 @@
 @page "/movies/create"
 @inject NavigationManager navigationManager
 @using ProjectMovies5.Client.Pages.Components
+@inject IServiceMovie movie
+@inject IErrorMessage showMessage
 
-<FormMovie Movie="Movie" OnValidSubmit="Create" CategoriasNoSeleccionadas="CategoriasNoSeleccionadas"></FormMovie>
+
+@if (ShowMoviesForm)
+
+{
+    <FormMovie Movie="Movie" OnValidSubmit="Create" CategoriasNoSeleccionadas="CategoriasNoSeleccionadas"></FormMovie>
+
+}
+else
+{
+    <div class="alert alert-info" role="alert">Cargando</div>
+}
+
 @code {
 
     private Movie Movie = new Movie();
 
     private List<MovieGenre> CategoriasNoSeleccionadas = new List<MovieGenre>();
+    @* No se cargaran las peliculas si no existen categorías en el sistema *@
 
-    protected override void OnInitialized()
+    private bool ShowMoviesForm { get; set; } = false;
+
+    protected async override Task OnInitializedAsync()
+
     {
 
-        CategoriasNoSeleccionadas = new List<MovieGenre>(){
-        new MovieGenre(){Id = 1, Name="Comedia"},
-        new MovieGenre(){Id = 2, Name="Terror"},
-        new MovieGenre(){Id = 3, Name="Ciencia Ficción"},
-        new MovieGenre(){Id = 4, Name="Documentales"},
-        new MovieGenre(){Id = 5, Name="Comedia"}
-        };
+        var responseHttp = await movie.Get<List<MovieGenre>>("api/moviegenres");
+
+        CategoriasNoSeleccionadas = responseHttp.Response;
+
+        ShowMoviesForm = true;
 
     }
 
-    void Create()
-
+    private async Task Create()
     {
-        @* Con el navigationManager vamos a redireccionar al usuario a otras rutas dentro del sistema *@
 
-        Console.WriteLine(navigationManager.Uri);
+        var httpResponse = await movie.Post("api/Movies", Movie);
 
-        navigationManager.NavigateTo("movie");
+        if (httpResponse.Error)
 
-        Console.WriteLine($"Pelicula: {Movie.Name}");
+        {
+            var body = await httpResponse.GetBody();
 
-        Console.WriteLine($"Premier: {Movie.Premier}");
+            await showMessage.ShowErrorMessage(body);
 
-        Console.WriteLine($"Esta en cartelera: {Movie.EnCartelera}");
+            Console.WriteLine(body);
+        }
 
-        Console.WriteLine($"Poster: {Movie.Poster}");
+        else
+        {
 
-        Console.WriteLine($"Sinopsis: {Movie.Sinopsis}");
+            var MovieId = httpResponse.Response;
 
+            navigationManager.NavigateTo($"/");
+
+        }
+        Console.WriteLine($"Creando la pelicula {Movie.Name}");
 
     }
 }

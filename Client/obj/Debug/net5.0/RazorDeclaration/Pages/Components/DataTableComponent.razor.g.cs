@@ -110,6 +110,16 @@ using ProjectMovies5.Client.Pages.Components;
         {
         }
         #pragma warning restore 1998
+#nullable restore
+#line 30 "D:\mintic\Diasteros-devAGG\Client\Pages\Components\DataTableComponent.razor"
+      
+
+[Parameter] public List<Movie> Movies { get; set; }
+
+
+#line default
+#line hidden
+#nullable disable
     }
 }
 #pragma warning restore 1591

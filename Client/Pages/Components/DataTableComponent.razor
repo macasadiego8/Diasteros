@@ -3,14 +3,32 @@
         <thead>
             <tr>
                 <th scope="col">Película</th>
-                <th scope="col">Sinopsis</th>
-                <th scope="col">Categoría</th>
                 <th scope="col">Premier</th>
-                <th scope="col">Acciones</th>
+                <th scope="col">Acciones</th>                
             </tr>
         </thead>
         <tbody>
+            @foreach (var movie in Movies)
+            {
+                <tr>
+                    <th scope="row">@movie.Name</th>                 
+                    
+                    <td>@movie.Premier</td>
+                    <td>
+                        <button>Editar</button>
+                        <span class="oi oi-plus aria-hidden="true"></span>
+                        <button>Eliminar</button>
+                        <span class="oi oi-trash aria-hidden="true"></span>
+                    </td>
+                </tr>
+            }
 
         </tbody>
     </table>
 </div>
+
+@code{
+
+[Parameter] public List<Movie> Movies { get; set; }
+
+}

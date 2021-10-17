@@ -113,7 +113,7 @@ using ProjectMovies5.Client.Pages.Components;
 #nullable restore
 #line 54 "D:\mintic\Diasteros-devAGG\Client\Pages\Components\FormActor.razor"
        
-     [Parameter] public Actor Actor { get; set; }
+    [Parameter] public Actor Actor { get; set; }
     [Parameter] public EventCallback OnValidSubmit { get; set; }
     private string imageURL;
 

@@ -112,58 +112,67 @@ using ProjectMovies5.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 6 "D:\mintic\Diasteros-devAGG\Client\Pages\Movies\CreateMovie.razor"
+#line 19 "D:\mintic\Diasteros-devAGG\Client\Pages\Movies\CreateMovie.razor"
        
 
     private Movie Movie = new Movie();
 
     private List<MovieGenre> CategoriasNoSeleccionadas = new List<MovieGenre>();
-
-    protected override void OnInitialized()
-    {
-
-        CategoriasNoSeleccionadas = new List<MovieGenre>(){
-        new MovieGenre(){Id = 1, Name="Comedia"},
-        new MovieGenre(){Id = 2, Name="Terror"},
-        new MovieGenre(){Id = 3, Name="Ciencia Ficción"},
-        new MovieGenre(){Id = 4, Name="Documentales"},
-        new MovieGenre(){Id = 5, Name="Comedia"}
-        };
-
-    }
-
-    void Create()
-
-    {
-        
+    
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 28 "D:\mintic\Diasteros-devAGG\Client\Pages\Movies\CreateMovie.razor"
-                                                                                                        
+#line 24 "D:\mintic\Diasteros-devAGG\Client\Pages\Movies\CreateMovie.razor"
+                                                                             
 
-        Console.WriteLine(navigationManager.Uri);
+    private bool ShowMoviesForm { get; set; } = false;
 
-        navigationManager.NavigateTo("movie");
+    protected async override Task OnInitializedAsync()
 
-        Console.WriteLine($"Pelicula: {Movie.Name}");
+    {
 
-        Console.WriteLine($"Premier: {Movie.Premier}");
+        var responseHttp = await movie.Get<List<MovieGenre>>("api/moviegenres");
 
-        Console.WriteLine($"Esta en cartelera: {Movie.EnCartelera}");
+        CategoriasNoSeleccionadas = responseHttp.Response;
 
-        Console.WriteLine($"Poster: {Movie.Poster}");
+        ShowMoviesForm = true;
 
-        Console.WriteLine($"Sinopsis: {Movie.Sinopsis}");
+    }
 
+    private async Task Create()
+    {
+
+        var httpResponse = await movie.Post("api/Movies", Movie);
+
+        if (httpResponse.Error)
+
+        {
+            var body = await httpResponse.GetBody();
+
+            await showMessage.ShowErrorMessage(body);
+
+            Console.WriteLine(body);
+        }
+
+        else
+        {
+
+            var MovieId = httpResponse.Response;
+
+            navigationManager.NavigateTo($"/");
+
+        }
+        Console.WriteLine($"Creando la pelicula {Movie.Name}");
 
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
     }
 }
