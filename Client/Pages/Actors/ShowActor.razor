@@ -1,50 +1,56 @@
-@page "/actors/show"
-
-<div class="container">
-    <div class="jumbotron">
-        <div class="card mb-3" style="max-width: 700px;">
-            <div class="row g-0">
-                <div class="col-md-4">
-                    <img src="@Actor.Photo" class="img-fluid rounded-start" alt="...">
-                </div>
-                <div class="col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">@Actor.Name</h5>
-                        <p class="card-text">@Actor.BirthDate</p>
-                        <p class="card-text"><small class="text-muted">@Actor.Biography</small></p>
-                        <p class="card-text"><small class="text-muted">Cantidad de créditos: @Actor.KnowCredits</small></p>
-                        <p class="card-text"><small class="text-muted">Películas en las que ha actuado:@Actor.MoviesPerform</small></p>
-                        <p class="card-text"><small class="text-muted">Premios que ha ganado: @Actor.Awards</small></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <a class="btn btn-success mb-3 ml-md-4" href="actors/edit" @onclick="@ActorEdit">Editar</a>            
-        </div>
-    </div>
+@* @page "/actors/show" *@
+@page "/actors"
+@using ProjectMoviesDiasteros.Client.Pages.Components
+@inject IServiceMovie movie
+@inject IErrorMessage showMessage
+ 
+<div class="form-group mb-3">
+    <a class="btn btn-info  btn-sm" href="actors/create">Agregar actor</a>
 </div>
-@code
-{
-    [Parameter] public int Id { get; set; }
-    Actor Actor = new Actor();
-
-    protected override void OnInitialized()
+<GenericList Listado="Actors">
+    <HayRegistrosCompleto>
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Actors)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>
+                            <a href="/actors/edit/@item.Id" class="btn btn-info btn-sm">Editar</a>
+                            <button @onclick="@(()=>DeleteActor(item))" class="btn btn-danger btn-sm">Eliminar</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </HayRegistrosCompleto >
+</GenericList>
+@code {
+    public List<Actor> Actors { get; set; }
+    protected async override Task OnInitializedAsync()
     {
-        Actor = new Actor()
-        {
-            Id = Id,
-            Name = "Actor Prueba",
-            KnowCredits = 18,
-            BirthDate = DateTime.Today,
-            Awards = "Oscars",
-            Biography = "vive en Hollywood",
-            MoviesPerform = "Hapiness, Hicth, Men In Black",
-            Photo = "Images/Actors/actor2.jpeg"
-        };
+ 
+        await Load();
     }
-    void ActorEdit()
+    private async Task Load()
     {
-         Console.WriteLine($"Click para editar");
+        var responseHttp = await movie.Get<List<Actor>>("api/actors");
+        Actors = responseHttp.Response;
+    }
+ 
+    private async Task DeleteActor(Actor Actor){
+        var responseHttp = await movie.Delete($"api/actors/{Actor.Id}");
+        if (responseHttp.Error)
+        {
+            await showMessage.ShowErrorMessage(await responseHttp.GetBody());
+        }else{
+            await Load();
+        }
     }
 }

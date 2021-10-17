@@ -98,7 +98,7 @@ using ProjectMoviesDiasteros.Client.Services;
 #nullable disable
 #nullable restore
 #line 13 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\_Imports.razor"
-using ProjectMoviesDiasteros.Client.Pages;
+using ProjectMoviesDiasteros.Shared.Models;
 
 #line default
 #line hidden
@@ -119,11 +119,22 @@ using ProjectMoviesDiasteros.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 6 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Actors\CreateActor.razor"
+#line 11 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Actors\CreateActor.razor"
  
     private Actor Actor = new Actor();
-    void Create()
+    
+    private async Task Create()
     {
+        var httpResponse = await movieI.Post("api/actors", Actor);
+        if (httpResponse.Error)
+        {
+            await showMessages.ShowErrorMessage(await httpResponse.GetBody());            
+        }
+        else
+        {
+            navigationManager.NavigateTo("/actors");            
+        }
+
         Console.WriteLine($"Actor: {Actor.Name}");
         Console.WriteLine($"Fecha de nacimiento: {Actor.BirthDate}");
         Console.WriteLine($"Cantidad de créditos: {Actor.KnowCredits}");
@@ -133,6 +144,9 @@ using ProjectMoviesDiasteros.Client.Pages.Components;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movieI { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessages { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
     }
 }
 #pragma warning restore 1591

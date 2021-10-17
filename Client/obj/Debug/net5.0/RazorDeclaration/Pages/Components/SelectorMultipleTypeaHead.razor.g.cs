@@ -98,7 +98,7 @@ using ProjectMoviesDiasteros.Client.Services;
 #nullable disable
 #nullable restore
 #line 13 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\_Imports.razor"
-using ProjectMoviesDiasteros.Client.Pages;
+using ProjectMoviesDiasteros.Shared.Models;
 
 #line default
 #line hidden

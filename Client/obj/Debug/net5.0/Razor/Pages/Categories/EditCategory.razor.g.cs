@@ -81,7 +81,7 @@ using ProjectMoviesDiasteros.Client.Shared;
 #nullable disable
 #nullable restore
 #line 11 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\_Imports.razor"
-using ProjectMoviesDiasteros.Shared.Entity;
+using ProjectMoviesDiasteros.Shared.Model;
 
 #line default
 #line hidden
@@ -114,7 +114,7 @@ using ProjectMoviesDiasteros.Client.Pages.Components;
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
             __builder.OpenComponent<ProjectMoviesDiasteros.Client.Pages.Components.FormCategory>(0);
-            __builder.AddAttribute(1, "Category", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<ProjectMoviesDiasteros.Shared.Entity.Category>(
+            __builder.AddAttribute(1, "Category", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<ProjectMoviesDiasteros.Shared.Model.Category>(
 #nullable restore
 #line 3 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Categories\EditCategory.razor"
                         Category

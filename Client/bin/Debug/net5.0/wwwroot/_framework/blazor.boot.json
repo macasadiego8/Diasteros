@@ -195,13 +195,13 @@
       "mscorlib.dll": "sha256-7WjHY56PbksCp7YOxNV59r6MqLujjAH8vhnMJ+zVezY=",
       "netstandard.dll": "sha256-5TcSqPhm3fAT6s3NH7+BMGakcfGgZGd3\/\/cVwVs2VPI=",
       "System.Private.CoreLib.dll": "sha256-VJv3DLM\/G0m\/RnTeWL9X8mkbxlsn8nNRhm0BHYEY+uo=",
-      "ProjectMoviesDiasteros.Shared.dll": "sha256-A7XJ90HL\/Bdiu6iTzrTDJTT5ogumQAD3uh\/IrzM+he8=",
-      "ProjectMoviesDiasteros.Client.dll": "sha256-cvUVzhDuxzsuUlmSDckHvxjBsZwx1mW6cMm14XCwhHw="
+      "ProjectMoviesDiasteros.Shared.dll": "sha256-jJI0z7Wsuuvm3faA0G7H1SpI2dFqldUPiTUVnKclUns=",
+      "ProjectMoviesDiasteros.Client.dll": "sha256-I0iaKJYGjCxYx8vv+StQDqTFX1wnESSHxBFXVdyNk24="
     },
     "lazyAssembly": null,
     "pdb": {
-      "ProjectMoviesDiasteros.Shared.pdb": "sha256-ojXjP\/EWR4RiXfSqICuY9+3KLlZ5SqlMFFrTkpAx7Rw=",
-      "ProjectMoviesDiasteros.Client.pdb": "sha256-N59MZMHYwFJeC+2GbdYryqWkaYD+96IfkE5x85W98U0="
+      "ProjectMoviesDiasteros.Shared.pdb": "sha256-NkOfHnF90KZsmuBl\/Q0fT+lBQN8Zez\/TeCd8itlDHh4=",
+      "ProjectMoviesDiasteros.Client.pdb": "sha256-ftwOrYO\/gP6\/rf+\/8NGf3FtFV7i92VN\/9nI\/PvVAo5g="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-PvlHrby1PYtdX46ITs6pB8iDNqXNcewh8Eoa\/Gm2+GM=",

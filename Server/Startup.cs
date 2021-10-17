@@ -1,3 +1,9 @@
+using System.Runtime.Serialization;
+using System.Reflection;
+using System.IO;
+using System.Net.NetworkInformation;
+using System.Buffers;
+using System.Net.Security;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Hosting;
@@ -6,6 +12,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using AutoMapper;
+using Newtonsoft.Json;
+using ProjectMoviesDiasteros.Server.Storage;
 
 namespace ProjectMoviesDiasteros.Server
 {
@@ -22,8 +32,13 @@ namespace ProjectMoviesDiasteros.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddControllersWithViews();
+            services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<IFilesStorageClass,FilesLocalStorage>();
+            services.AddHttpContextAccessor();
+            /* services.AddAutoMapper(typeof(Startup));
+            services.AddControllersWithViews().AddNewtonsoftJson(
+                options => options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore); */
             services.AddRazorPages();
         }
 

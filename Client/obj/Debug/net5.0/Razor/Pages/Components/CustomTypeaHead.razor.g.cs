@@ -77,7 +77,7 @@ using ProjectMoviesDiasteros.Client.Shared;
 #nullable disable
 #nullable restore
 #line 11 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\_Imports.razor"
-using ProjectMoviesDiasteros.Shared.Entity;
+using ProjectMoviesDiasteros.Shared.Model;
 
 #line default
 #line hidden

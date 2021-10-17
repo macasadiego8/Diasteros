@@ -98,7 +98,7 @@ using ProjectMoviesDiasteros.Client.Services;
 #nullable disable
 #nullable restore
 #line 13 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\_Imports.razor"
-using ProjectMoviesDiasteros.Client.Pages;
+using ProjectMoviesDiasteros.Shared.Models;
 
 #line default
 #line hidden
@@ -125,7 +125,7 @@ using ProjectMoviesDiasteros.Client.Model;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 80 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Components\FormMovie.razor"
+#line 83 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Components\FormMovie.razor"
        
     [Parameter] public Movie Movie { get; set; }
     [Parameter] public EventCallback OnValidSubmit { get; set; }
@@ -152,20 +152,27 @@ using ProjectMoviesDiasteros.Client.Model;
             posterTemporal = Movie.Poster;
             Movie.Poster = null;
         }
-    }
-    private async Task<IEnumerable<Actor>> BuscarActores(string searchText)      
+    }    
+    private async Task<IEnumerable<Actor>> SearchActors(string searchText)      
     {
-        return new List<Actor>()
+        var responseHttp = await movieI.Get<List<Actor>>($"api/actors/search/{searchText}");
+        return responseHttp.Response;
+    }
+
+    private async Task OnDataAnnotationsValidated()
+    {
+        Movie.CategoriesMovie = Seleccionados.Select(x=> new CategoryMovie{CategoryId=int.Parse(x.Key)}).ToList();
+        if (!string.IsNullOrWhiteSpace(Movie.Poster))
         {
-            new Actor(){Id=1, Name="Actor1", Photo="Images/Actors/actor1.jpeg"},
-            new Actor(){Id=2, Name="Actor2", Photo="Images/Actors/actor2.jpeg"},
-            new Actor(){Id=3, Name="Actor3", Photo="Images/Actors/actor3.jpeg"}
-        };
+            posterTemporal = null;
+        }
+        await OnValidSubmit.InvokeAsync(null);
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movieI { get; set; }
     }
 }
 #pragma warning restore 1591

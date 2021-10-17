@@ -98,12 +98,19 @@ using ProjectMoviesDiasteros.Client.Services;
 #nullable disable
 #nullable restore
 #line 13 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\_Imports.razor"
-using ProjectMoviesDiasteros.Client.Pages;
+using ProjectMoviesDiasteros.Shared.Models;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/actors/show")]
+#nullable restore
+#line 3 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Actors\ShowActor.razor"
+using ProjectMoviesDiasteros.Client.Pages.Components;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/actors")]
     public partial class ShowActor : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -112,33 +119,35 @@ using ProjectMoviesDiasteros.Client.Pages;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Actors\ShowActor.razor"
+#line 34 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Actors\ShowActor.razor"
+       
+    public List<Actor> Actors { get; set; }
+    protected async override Task OnInitializedAsync()
+    {
  
-    [Parameter] public int Id { get; set; }
-    Actor Actor = new Actor();
-
-    protected override void OnInitialized()
-    {
-        Actor = new Actor()
-        {
-            Id = Id,
-            Name = "Actor Prueba",
-            KnowCredits = 18,
-            BirthDate = DateTime.Today,
-            Awards = "Oscars",
-            Biography = "vive en Hollywood",
-            MoviesPerform = "Hapiness, Hicth, Men In Black",
-            Photo = "Images/Actors/actor2.jpeg"
-        };
+        await Load();
     }
-    void ActorEdit()
+    private async Task Load()
     {
-         Console.WriteLine($"Click para editar");
+        var responseHttp = await movie.Get<List<Actor>>("api/actors");
+        Actors = responseHttp.Response;
+    }
+ 
+    private async Task DeleteActor(Actor Actor){
+        var responseHttp = await movie.Delete($"api/actors/{Actor.Id}");
+        if (responseHttp.Error)
+        {
+            await showMessage.ShowErrorMessage(await responseHttp.GetBody());
+        }else{
+            await Load();
+        }
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie { get; set; }
     }
 }
 #pragma warning restore 1591

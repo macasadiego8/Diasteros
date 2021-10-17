@@ -678,3 +678,9 @@ C:\ProysCicloIII\ProjectMoviesDiasteros\Client\obj\Debug\net5.0\RazorDeclaration
 C:\ProysCicloIII\ProjectMoviesDiasteros\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Components\SelectorMultipleTypeaHead.razor.g.cs
 C:\ProysCicloIII\ProjectMoviesDiasteros\Client\obj\Debug\net5.0\Razor\Pages\Components\CustomTypeaHead.razor.g.cs
 C:\ProysCicloIII\ProjectMoviesDiasteros\Client\obj\Debug\net5.0\Razor\Pages\Components\SelectorMultipleTypeaHead.razor.g.cs
+C:\ProysCicloIII\ProjectMoviesDiasteros\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Categories\EnlistCategory.razor.g.cs
+C:\ProysCicloIII\ProjectMoviesDiasteros\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Components\GenericList.razor.g.cs
+C:\ProysCicloIII\ProjectMoviesDiasteros\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Actors\ListActor.razor.g.cs
+C:\ProysCicloIII\ProjectMoviesDiasteros\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Movies\ListMovie.razor.g.cs
+C:\ProysCicloIII\ProjectMoviesDiasteros\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Components\MovieInd.razor.g.cs
+C:\ProysCicloIII\ProjectMoviesDiasteros\Client\obj\Debug\net5.0\RazorDeclaration\Pages\Components\MovieList.razor.g.cs

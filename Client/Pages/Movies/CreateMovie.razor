@@ -1,32 +1,48 @@
 @page "/movies/create"
-@inject NavigationManager navigationManager
 @using ProjectMoviesDiasteros.Client.Pages.Components
+@inject NavigationManager navigationManager
+@inject IServiceMovie movieI
+@inject IErrorMessage showMessage
 
-<FormMovie Movie="Movie" OnValidSubmit="Create" CategoriasNoSeleccionadas="CategoriasNoSeleccionadas"></FormMovie>
+@if (ShowMoviesForm)
+{
+    <FormMovie Movie="Movie" OnValidSubmit="Create" CategoriasNoSeleccionadas="CategoriasNoSeleccionadas"></FormMovie>    
+}
+else
+{
+    <div class="alert alert-info" role="alert">Cargando...</div>
+}
 @code {
     private Movie Movie = new Movie();
     private List<Category> CategoriasNoSeleccionadas = new List<Category>();
+    private bool ShowMoviesForm{get; set;} = false; @* no se cargan las películas si no existen categorías registradas *@
 
-    protected override void OnInitialized()
+    protected async override Task OnInitializedAsync()
     {
-        CategoriasNoSeleccionadas = new List<Category>(){
-            new Category(){Id = 1, Name="Comedia"},
-            new Category(){Id = 2, Name="Terror"},
-            new Category(){Id = 3, Name="Ciencia Ficción"},
-            new Category(){Id = 4, Name="Documentales"},
-            new Category(){Id = 5, Name="Comedia"}
-};
+        var responseHttp = await movieI.Get<List<Category>>("api/categories");
+        CategoriasNoSeleccionadas = responseHttp.Response;
+        ShowMoviesForm = true;  
     }
-    void Create()
-    {
-        @* Con el navigationManager vamos a redireccionar al usuario a otras rutas dentro del sistema *@
-        Console.WriteLine(navigationManager.Uri);
-        navigationManager.NavigateTo("movie");
-        Console.WriteLine($"Pelicula: {Movie.Name}");
-        Console.WriteLine($"Premier: {Movie.Premier}");
-        Console.WriteLine($"Esta en cartelera: {Movie.OnBoard}");
-        Console.WriteLine($"Poster: {Movie.Poster}");
-        Console.WriteLine($"Sinopsis: {Movie.Sinopsis}");
 
+    async Task Create()
+    {
+        var httpResponse = await movieI.Post<Movie, int>("api/movies", Movie);
+        if (httpResponse.Error)
+        {
+            var body = await httpResponse.GetBody();
+            await showMessage.ShowErrorMessage(body);
+            Console.WriteLine(body);
+        }
+        else
+        {
+            var MovieId = httpResponse.Response;
+            navigationManager.NavigateTo($"/movie/{MovieId}/{Movie.Name.Replace("","-")}");
+            @* Console.WriteLine($"Pelicula: {Movie.Name}");
+            Console.WriteLine($"Premier: {Movie.Premier}");
+            Console.WriteLine($"Esta en cartelera: {Movie.OnBoard}");
+            Console.WriteLine($"Poster: {Movie.Poster}");
+            Console.WriteLine($"Sinopsis: {Movie.Sinopsis}");
+            Console.WriteLine($"Actores: {Actor.Name}"); *@
+        }
     }
 }

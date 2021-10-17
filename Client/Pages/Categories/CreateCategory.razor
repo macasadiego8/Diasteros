@@ -1,5 +1,7 @@
 @page "/categories/create"
 @using ProjectMoviesDiasteros.Client.Pages.Components
+@inject IServiceMovie movieI
+@inject NavigationManager navigationManager
 
 <FormCategory Category="Category" OnValidSubmit="Create"></FormCategory>
 
@@ -7,8 +9,18 @@
 {
     private Category Category = new Category();
 
-    private void Create()
+    async void Create()
     {
-        Console.WriteLine($"Creando la categoría {Category.Name}");
+        var httpResponse = await movieI.Post("api/categories", Category);
+        if (httpResponse.Error)
+        {
+            var body = await httpResponse.HttpResponseMessage.Content.ReadAsStringAsync();
+            Console.WriteLine(body);            
+        }
+        else
+        {
+            navigationManager.NavigateTo("/categories");
+            Console.WriteLine(Category.Name);
+        }
     }    
 }

@@ -81,7 +81,7 @@ using ProjectMoviesDiasteros.Client.Shared;
 #nullable disable
 #nullable restore
 #line 11 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\_Imports.razor"
-using ProjectMoviesDiasteros.Shared.Entity;
+using ProjectMoviesDiasteros.Shared.Model;
 
 #line default
 #line hidden
@@ -143,7 +143,7 @@ else
 #nullable disable
             __builder.AddMarkupContent(2, "<h5>Películas en cartelera</h5>\r\n    <br>\r\n    ");
             __builder.OpenComponent<ProjectMoviesDiasteros.Client.Pages.Components.ServiceComponent>(3);
-            __builder.AddAttribute(4, "Movies", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<ProjectMoviesDiasteros.Shared.Entity.Movie>>(
+            __builder.AddAttribute(4, "Movies", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<ProjectMoviesDiasteros.Shared.Model.Movie>>(
 #nullable restore
 #line 19 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Billboard.razor"
                               Movies

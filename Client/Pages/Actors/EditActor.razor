@@ -1,32 +1,56 @@
 @page "/actors/edit/{Id:int}"
 @using ProjectMoviesDiasteros.Client.Pages.Components
+@inject IServiceMovie movieI
+@inject IErrorMessage showMessage
+@inject NavigationManager navigationManager
 
-<FormActor Actor="Actor" OnValidSubmit="Edit"></FormActor>
+<div class="container">
+    <div class="jumbotron">
+        <h6>Editar actor</h6>
+        @if (Actor == null)
+        {
+            <div class="alert alert-info" role="alert">Cargando</div>                        
+        }
+        else
+        {
+            <FormActor Actor="Actor" OnValidSubmit="Edit"></FormActor>
+        }
+    </div>
+</div>
 @code
 {
     [Parameter] public int Id { get; set; }
-    Actor Actor = new Actor();
-
-    protected override void OnInitialized()
+    Actor Actor;
+    protected async override Task OnInitializedAsync()
     {
-        Actor = new Actor()
+        var httpResponse = await movieI.Get<Actor>($"api/actors/{Id}");
+        if (httpResponse.Error)
         {
-            Id = Id,
-            Name = "Actor Prueba",
-            KnowCredits = 18,
-            BirthDate = DateTime.Today,
-            Awards = "Oscars",
-            Biography = "Vive en Hollywood",
-            MoviesPerform = "Hapiness, Hicth, Men In Black",
-            Photo = "Images/Actors/actor2.jpeg"
-        };
+            if (httpResponse.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                navigationManager.NavigateTo("actors");
+            }
+            else
+            {
+                await showMessage.ShowErrorMessage(await httpResponse.GetBody());
+            }
+        }
+        else
+        {
+            Actor = httpResponse.Response;
+            Console.WriteLine(Actor.Photo);
+        }
     }
-    void Edit()
+    private async Task Edit()
     {
-        Console.WriteLine($"Actor: {Actor.Name}");
-        Console.WriteLine($"Fecha: {Actor.BirthDate}");
-        Console.WriteLine($"Actor: {Actor.KnowCredits}");
-        Console.WriteLine($"Actor: {Actor.Photo}");
+        var httpResponse = await movieI.Put("api/actors", Actor);
+        if (httpResponse.Error)
+        {
+            await showMessage.ShowErrorMessage(await httpResponse.GetBody());            
+        }
+        else
+        {
+            navigationManager.NavigateTo("actors");
+        }
     }
-
 }

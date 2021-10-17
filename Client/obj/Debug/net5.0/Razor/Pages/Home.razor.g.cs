@@ -81,7 +81,7 @@ using ProjectMoviesDiasteros.Client.Shared;
 #nullable disable
 #nullable restore
 #line 11 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\_Imports.razor"
-using ProjectMoviesDiasteros.Shared.Entity;
+using ProjectMoviesDiasteros.Shared.Model;
 
 #line default
 #line hidden
@@ -126,7 +126,7 @@ using ProjectMoviesDiasteros.Client.Pages.Components;
 
 ");
             __builder.OpenComponent<ProjectMoviesDiasteros.Client.Pages.Components.ServiceComponent>(1);
-            __builder.AddAttribute(2, "Movies", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<ProjectMoviesDiasteros.Shared.Entity.Movie>>(
+            __builder.AddAttribute(2, "Movies", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<ProjectMoviesDiasteros.Shared.Model.Movie>>(
 #nullable restore
 #line 42 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Home.razor"
                             Movies

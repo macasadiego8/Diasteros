@@ -98,7 +98,14 @@ using ProjectMoviesDiasteros.Client.Services;
 #nullable disable
 #nullable restore
 #line 13 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\_Imports.razor"
-using ProjectMoviesDiasteros.Client.Pages;
+using ProjectMoviesDiasteros.Shared.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Categories\ShowCategory.razor"
+using ProjectMoviesDiasteros.Client.Pages.Components;
 
 #line default
 #line hidden
@@ -112,13 +119,38 @@ using ProjectMoviesDiasteros.Client.Pages;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 7 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Categories\ShowCategory.razor"
+#line 35 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Categories\ShowCategory.razor"
  
-    [Parameter] public int Id{get;set;}
+    public List<Category> Categories{get;set;}
+    protected async override Task OnInitializedAsync()
+    {
+        await Load();
+    }
+    
+    private async Task Load()
+    {
+        var responseHttp = await movieI.Get<List<Category>>("api/categories");
+        Categories = responseHttp.Response;
+    }
+
+    private async Task DeleteCategory(Category category)
+    {
+        var responseHttp = await movieI.Delete($"api/categories{category.Id}");
+        if (responseHttp.Error)
+        {
+            await showMessage.ShowErrorMessage(await responseHttp.GetBody());
+        }
+        else
+        {
+            await Load();
+        }
+    }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movieI { get; set; }
     }
 }
 #pragma warning restore 1591

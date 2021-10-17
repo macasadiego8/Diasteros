@@ -21,13 +21,14 @@ namespace ProjectMoviesDiasteros.Client
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
             ConfigureServices(builder.Services);
-
             await builder.Build().RunAsync();
         }
         private static void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IServiceMovie,ServiceMovie>();
-            services.AddSingleton<IServiceActor,ServiceActor>();            
+            services.AddScoped<IServiceMovie,ServiceMovie>();
+            services.AddScoped<IErrorMessage,ErrorMessage>();
+
+            /* services.AddSingleton<IServiceActor,ServiceActor>();   */          
         }
     }
 }

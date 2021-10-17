@@ -81,7 +81,7 @@ using ProjectMoviesDiasteros.Client.Shared;
 #nullable disable
 #nullable restore
 #line 11 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\_Imports.razor"
-using ProjectMoviesDiasteros.Shared.Entity;
+using ProjectMoviesDiasteros.Shared.Model;
 
 #line default
 #line hidden
@@ -181,7 +181,7 @@ using ProjectMoviesDiasteros.Client.Pages.Components;
             __builder.CloseElement();
             __builder.AddMarkupContent(27, "\r\n");
             __builder.OpenComponent<ProjectMoviesDiasteros.Client.Pages.Components.ServiceActorComponent>(28);
-            __builder.AddAttribute(29, "Actors", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<ProjectMoviesDiasteros.Shared.Entity.Actor>>(
+            __builder.AddAttribute(29, "Actors", Microsoft.AspNetCore.Components.CompilerServices.RuntimeHelpers.TypeCheck<System.Collections.Generic.List<ProjectMoviesDiasteros.Shared.Model.Actor>>(
 #nullable restore
 #line 15 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Actors\FilterActor.razor"
                                Actors

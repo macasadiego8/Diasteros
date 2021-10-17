@@ -98,7 +98,7 @@ using ProjectMoviesDiasteros.Client.Services;
 #nullable disable
 #nullable restore
 #line 13 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\_Imports.razor"
-using ProjectMoviesDiasteros.Client.Pages;
+using ProjectMoviesDiasteros.Shared.Models;
 
 #line default
 #line hidden
@@ -110,7 +110,7 @@ using ProjectMoviesDiasteros.Client.Pages.Components;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/categories/edit")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/categories/edit/{Id:int}")]
     public partial class EditCategory : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -119,28 +119,50 @@ using ProjectMoviesDiasteros.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 6 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Categories\EditCategory.razor"
+#line 17 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Categories\EditCategory.razor"
  
     [Parameter] public int Id{get;set;}
     private Category Category;
 
-    protected override void OnInitialized()
+    protected async override Task OnInitializedAsync()
     {
-        Category = new Category()
+        var responseHttp = await movieI.Get<Category>($"api/categories/{Id}");
+        if (responseHttp.Error)
         {
-            Id = Id,
-            Name = "Ciencia Ficción"
-        };
+            if (responseHttp.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                navigationManager.NavigateTo("categories");                
+            }
+            else
+            {
+                await showMessage.ShowErrorMessage(await responseHttp.GetBody());
+            }
+        }
+        else
+        {
+            Category = responseHttp.Response;
+        }        
     }
 
-    private void Edit()
+    private async Task Edit()
     {
-        Console.WriteLine($"Actualizando la categoría id {Category.Id} nombre {Category.Name}");
+        var responseHttp = await movieI.Put("api/categories", Category);
+        if (responseHttp.Error)
+        {
+            await showMessage.ShowErrorMessage(await responseHttp.GetBody());
+        }
+        else
+        {
+            navigationManager.NavigateTo("categories");
+        }
     }    
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movieI { get; set; }
     }
 }
 #pragma warning restore 1591

@@ -1,6 +1,8 @@
 @using ProjectMoviesDiasteros.Client.Pages.Components
 @using ProjectMoviesDiasteros.Client.Model
-<EditForm Model="Movie" OnValidSubmit="OnValidSubmit">
+@inject IServiceMovie movieI
+
+<EditForm Model="Movie" OnValidSubmit="OnDataAnnotationsValidated">
     <DataAnnotationsValidator></DataAnnotationsValidator>
 
     <div class="container">
@@ -62,7 +64,7 @@
             <div class="form-group">
                 <label>Actores:</label>
                 <div>
-                    <SelectorMultipleTypeaHead Context="actor" SearchMethod="BuscarActores" ElementosSeleccionados="ActoresSeleccionados">
+                    <SelectorMultipleTypeaHead Context="actor" SearchMethod="SearchActors" ElementosSeleccionados="ActoresSeleccionados">
                         <MyListTemplate>
                             @actor.Name
                         </MyListTemplate>
@@ -104,14 +106,20 @@
             posterTemporal = Movie.Poster;
             Movie.Poster = null;
         }
-    }
-    private async Task<IEnumerable<Actor>> BuscarActores(string searchText)      
+    }    
+    private async Task<IEnumerable<Actor>> SearchActors(string searchText)      
     {
-        return new List<Actor>()
+        var responseHttp = await movieI.Get<List<Actor>>($"api/actors/search/{searchText}");
+        return responseHttp.Response;
+    }
+
+    private async Task OnDataAnnotationsValidated()
+    {
+        Movie.CategoriesMovie = Seleccionados.Select(x=> new CategoryMovie{CategoryId=int.Parse(x.Key)}).ToList();
+        if (!string.IsNullOrWhiteSpace(Movie.Poster))
         {
-            new Actor(){Id=1, Name="Actor1", Photo="Images/Actors/actor1.jpeg"},
-            new Actor(){Id=2, Name="Actor2", Photo="Images/Actors/actor2.jpeg"},
-            new Actor(){Id=3, Name="Actor3", Photo="Images/Actors/actor3.jpeg"}
-        };
+            posterTemporal = null;
+        }
+        await OnValidSubmit.InvokeAsync(null);
     }
 }

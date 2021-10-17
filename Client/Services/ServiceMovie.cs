@@ -1,11 +1,86 @@
+using System.Text;
 using ProjectMoviesDiasteros.Shared.Entity;
 using System;
 using System.Collections.Generic;
+using System.Text.Json;
+using System.Threading.Tasks;
+using System.Net.Http;
+using System.Linq;
 
 namespace ProjectMoviesDiasteros.Client.Services
 {
     public class ServiceMovie : IServiceMovie
     {
+        private readonly HttpClient httpClient;
+        
+        public ServiceMovie(HttpClient httpClient)
+        {
+            this.httpClient = httpClient;
+        }
+
+        private JsonSerializerOptions OptionsDefaultJSON => new JsonSerializerOptions(){PropertyNameCaseInsensitive = true};
+
+        /* Método Cear */
+        public async Task<HttpResponseWrapper<object>> Post<T>(string url, T send)
+        {
+            var sendJSON = JsonSerializer.Serialize(send);
+            var sendContent = new StringContent(sendJSON, Encoding.UTF8, "application/json");
+            var responseHttp = await httpClient.PostAsync(url, sendContent);
+            return new HttpResponseWrapper<object>(null, !responseHttp.IsSuccessStatusCode, responseHttp);
+        }
+        public async Task<T> DeserializeResponse<T>(HttpResponseMessage httpResponse, JsonSerializerOptions jsonSerializerOptions)
+        {
+            var responseString = await httpResponse.Content.ReadAsStringAsync();
+            return JsonSerializer.Deserialize<T>(responseString, jsonSerializerOptions);
+        }
+
+        public async Task<HttpResponseWrapper<TResponse>> Post<T, TResponse>(string url, T send)
+        {
+            var sendJSON = JsonSerializer.Serialize(send);
+            var sendContent = new StringContent(sendJSON, Encoding.UTF8, "application/json");
+            var responseHttp = await httpClient.PostAsync(url, sendContent);
+            if (responseHttp.IsSuccessStatusCode)
+            {
+                var response = await DeserializeResponse<TResponse>(responseHttp, OptionsDefaultJSON);
+                return new HttpResponseWrapper<TResponse>(response, false, responseHttp);
+            }
+            else
+            {
+                return new HttpResponseWrapper<TResponse>(default, true, responseHttp);
+            }
+        }
+
+        /* Método Consultar */
+        public async Task<HttpResponseWrapper<T>> Get<T>(string url)
+        {
+            var responseHTTP = await httpClient.GetAsync(url);
+            if (responseHTTP.IsSuccessStatusCode)
+            {
+                var response = await DeserializeResponse<T>(responseHTTP, OptionsDefaultJSON);
+                return new HttpResponseWrapper<T>(response, false, responseHTTP);
+            }
+            else
+            {
+                return new HttpResponseWrapper<T>(default, true, responseHTTP);
+            }           
+        }
+
+        /* Método Modificar */
+        public async Task<HttpResponseWrapper<object>> Put<T>(string url, T send)
+        {
+            var sendJSON = JsonSerializer.Serialize(send);
+            var sendContent = new StringContent(sendJSON, Encoding.UTF8, "application/json");
+            var responseHttp = await httpClient.PutAsync(url, sendContent);
+            return new HttpResponseWrapper<object>(null, !responseHttp.IsSuccessStatusCode, responseHttp);
+        }
+
+        /* Método Eliminar */
+        public async Task<HttpResponseWrapper<object>> Delete(string url)
+        {
+            var responseHttp = await httpClient.DeleteAsync(url);
+            return new HttpResponseWrapper<object>(null, !responseHttp.IsSuccessStatusCode, responseHttp);
+        }
+                 
         public List<Movie> GetMovies()
         {
             return new List<Movie>()

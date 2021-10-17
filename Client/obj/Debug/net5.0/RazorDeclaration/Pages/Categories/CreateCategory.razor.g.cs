@@ -98,7 +98,7 @@ using ProjectMoviesDiasteros.Client.Services;
 #nullable disable
 #nullable restore
 #line 13 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\_Imports.razor"
-using ProjectMoviesDiasteros.Client.Pages;
+using ProjectMoviesDiasteros.Shared.Models;
 
 #line default
 #line hidden
@@ -119,18 +119,30 @@ using ProjectMoviesDiasteros.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 7 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Categories\CreateCategory.razor"
+#line 9 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Categories\CreateCategory.razor"
  
     private Category Category = new Category();
 
-    private void Create()
+    async void Create()
     {
-        Console.WriteLine($"Creando la categoría {Category.Name}");
+        var httpResponse = await movieI.Post("api/categories", Category);
+        if (httpResponse.Error)
+        {
+            var body = await httpResponse.HttpResponseMessage.Content.ReadAsStringAsync();
+            Console.WriteLine(body);            
+        }
+        else
+        {
+            navigationManager.NavigateTo("/categories");
+            Console.WriteLine(Category.Name);
+        }
     }    
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movieI { get; set; }
     }
 }
 #pragma warning restore 1591

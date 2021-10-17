@@ -1,23 +1,53 @@
-@page "/categories/edit"
+@page "/categories/edit/{Id:int}"
 @using ProjectMoviesDiasteros.Client.Pages.Components;
-<FormCategory Category="Category" OnValidSubmit="Edit"></FormCategory>
+@inject IServiceMovie movieI
+@inject IErrorMessage showMessage
+@inject NavigationManager navigationManager
 
+@if (Category == null)
+{
+    <div class="alert alert-info" role="alert">Cargando</div>
+
+}
+else
+{
+    <FormCategory Category="Category" OnValidSubmit="Edit"></FormCategory>    
+}
 @code
 {
     [Parameter] public int Id{get;set;}
     private Category Category;
 
-    protected override void OnInitialized()
+    protected async override Task OnInitializedAsync()
     {
-        Category = new Category()
+        var responseHttp = await movieI.Get<Category>($"api/categories/{Id}");
+        if (responseHttp.Error)
         {
-            Id = Id,
-            Name = "Ciencia Ficción"
-        };
+            if (responseHttp.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                navigationManager.NavigateTo("categories");                
+            }
+            else
+            {
+                await showMessage.ShowErrorMessage(await responseHttp.GetBody());
+            }
+        }
+        else
+        {
+            Category = responseHttp.Response;
+        }        
     }
 
-    private void Edit()
+    private async Task Edit()
     {
-        Console.WriteLine($"Actualizando la categoría id {Category.Id} nombre {Category.Name}");
+        var responseHttp = await movieI.Put("api/categories", Category);
+        if (responseHttp.Error)
+        {
+            await showMessage.ShowErrorMessage(await responseHttp.GetBody());
+        }
+        else
+        {
+            navigationManager.NavigateTo("categories");
+        }
     }    
 }

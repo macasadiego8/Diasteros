@@ -97,15 +97,15 @@ using ProjectMoviesDiasteros.Client.Services;
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\_Imports.razor"
-using ProjectMoviesDiasteros.Client.Pages;
+#line 2 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Movies\EditMovie.razor"
+using ProjectMoviesDiasteros.Client.Pages.Components;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Movies\EditMovie.razor"
-using ProjectMoviesDiasteros.Client.Pages.Components;
+#line 3 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Movies\EditMovie.razor"
+using ProjectMoviesDiasteros.Shared.Models;
 
 #line default
 #line hidden
@@ -119,32 +119,58 @@ using ProjectMoviesDiasteros.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 5 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Movies\EditMovie.razor"
+#line 23 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Movies\EditMovie.razor"
        
     [Parameter] public int Id { get; set; }
-    private Movie Movie;
-    protected override void OnInitialized()
+    Movie Movie;
+    private List<Category> CategoriasSeleccionadas = new List<Category>();
+    private List<Category> CategoriasNoSeleccionadas = new List<Category>();
+    private List<Actor> ActoresSeleccionados { get; set; }
+ 
+    protected async override Task OnInitializedAsync()
     {
-        Movie = new Movie()
+        var httpResponse = await movie_i.Get<PutMovie>($"api/movies/edit/{Id}");
+ 
+        if (httpResponse.Error)
         {
-            Name = "El juego del calamar",
-            OnBoard = true,
-            Sinopsis = "Sinopsis...",
-            Trailer = "Trailer"
-        };
+            if (httpResponse.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                navigationManager.NavigateTo("");
+            }
+            else
+            {
+                await showMessage.ShowErrorMessage(await httpResponse.GetBody());
+            }
+        }
+        else
+        {
+            var model = httpResponse.Response;
+            ActoresSeleccionados = model.Actors;
+            CategoriasNoSeleccionadas = model.CategoriasNoSeleccionadas;
+            CategoriasSeleccionadas = model.CategoriasSeleccionadas;
+            Movie = model.Movie;
+        }
     }
-    void Edit()
+ 
+    private async Task Edit()
     {
-        Console.WriteLine($"Pelicula: {Movie.Name}");
-        Console.WriteLine($"Premier: {Movie.Premier}");
-        Console.WriteLine($"Esta en cartelera: {Movie.OnBoard}");
-        Console.WriteLine($"Poster: {Movie.Poster}");
-        Console.WriteLine($"Sinopsis: {Movie.Sinopsis}");
+        var httpResponse = await movie_i.Put("api/movies", Movie);
+        if (httpResponse.Error)
+        {
+            await showMessage.ShowErrorMessage(await httpResponse.GetBody());
+        }
+        else
+        {
+            navigationManager.NavigateTo($"movie/{Id}");
+        }
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie_i { get; set; }
     }
 }
 #pragma warning restore 1591

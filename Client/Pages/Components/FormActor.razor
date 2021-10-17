@@ -59,6 +59,7 @@
         if (!string.IsNullOrEmpty(Actor.Photo))
         {
             imageURL = Actor.Photo;
+            Console.WriteLine(imageURL);
             Actor.Photo = null;
         }
     }
@@ -68,5 +69,4 @@
         Actor.Photo = imageB64;
         imageURL = null;
     }
-
 }

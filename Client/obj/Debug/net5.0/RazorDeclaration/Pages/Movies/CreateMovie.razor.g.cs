@@ -98,13 +98,13 @@ using ProjectMoviesDiasteros.Client.Services;
 #nullable disable
 #nullable restore
 #line 13 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\_Imports.razor"
-using ProjectMoviesDiasteros.Client.Pages;
+using ProjectMoviesDiasteros.Shared.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Movies\CreateMovie.razor"
+#line 2 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Movies\CreateMovie.razor"
 using ProjectMoviesDiasteros.Client.Pages.Components;
 
 #line default
@@ -119,44 +119,55 @@ using ProjectMoviesDiasteros.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 6 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Movies\CreateMovie.razor"
+#line 15 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Movies\CreateMovie.razor"
        
     private Movie Movie = new Movie();
     private List<Category> CategoriasNoSeleccionadas = new List<Category>();
-
-    protected override void OnInitialized()
-    {
-        CategoriasNoSeleccionadas = new List<Category>(){
-            new Category(){Id = 1, Name="Comedia"},
-            new Category(){Id = 2, Name="Terror"},
-            new Category(){Id = 3, Name="Ciencia Ficción"},
-            new Category(){Id = 4, Name="Documentales"},
-            new Category(){Id = 5, Name="Comedia"}
-};
-    }
-    void Create()
-    {
-        
+    private bool ShowMoviesForm{get; set;} = false; 
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 22 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Movies\CreateMovie.razor"
-                                                                                                        
-        Console.WriteLine(navigationManager.Uri);
-        navigationManager.NavigateTo("movie");
-        Console.WriteLine($"Pelicula: {Movie.Name}");
-        Console.WriteLine($"Premier: {Movie.Premier}");
-        Console.WriteLine($"Esta en cartelera: {Movie.OnBoard}");
-        Console.WriteLine($"Poster: {Movie.Poster}");
-        Console.WriteLine($"Sinopsis: {Movie.Sinopsis}");
+#line 18 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Movies\CreateMovie.razor"
+                                                                                                                         
 
+    protected async override Task OnInitializedAsync()
+    {
+        var responseHttp = await movieI.Get<List<Category>>("api/categories");
+        CategoriasNoSeleccionadas = responseHttp.Response;
+        ShowMoviesForm = true;  
+    }
+
+    async Task Create()
+    {
+        var httpResponse = await movieI.Post<Movie, int>("api/movies", Movie);
+        if (httpResponse.Error)
+        {
+            var body = await httpResponse.GetBody();
+            await showMessage.ShowErrorMessage(body);
+            Console.WriteLine(body);
+        }
+        else
+        {
+            var MovieId = httpResponse.Response;
+            navigationManager.NavigateTo($"/movie/{MovieId}/{Movie.Name.Replace("","-")}");
+            
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 45 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Movies\CreateMovie.razor"
+                                                           
+        }
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movieI { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
     }
 }

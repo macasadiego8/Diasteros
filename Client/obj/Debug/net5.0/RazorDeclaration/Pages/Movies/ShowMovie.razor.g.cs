@@ -83,13 +83,6 @@ using ProjectMoviesDiasteros.Client.Shared;
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\_Imports.razor"
-using ProjectMoviesDiasteros.Shared.Entity;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
 #line 12 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\_Imports.razor"
 using ProjectMoviesDiasteros.Client.Services;
 
@@ -97,20 +90,21 @@ using ProjectMoviesDiasteros.Client.Services;
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\_Imports.razor"
-using ProjectMoviesDiasteros.Client.Pages;
+#line 6 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Movies\ShowMovie.razor"
+using ProjectMoviesDiasteros.Shared.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Movies\ShowMovie.razor"
-using ProjectMoviesDiasteros.Client.Pages.Components;
+#line 7 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Movies\ShowMovie.razor"
+using ProjectMoviesDiasteros.Shared.Entity;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/movie")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/movie/{Id:int}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/movie/{Id:int}/{Name}")]
     public partial class ShowMovie : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -119,29 +113,69 @@ using ProjectMoviesDiasteros.Client.Pages.Components;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 28 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Movies\ShowMovie.razor"
- 
+#line 51 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Movies\ShowMovie.razor"
+       
     [Parameter] public int Id { get; set; }
-    Movie Movie = new Movie();
+    [Parameter] public string Name { get; set; }
+    private ViewMovie model;
+    private RenderFragment<Category> linkCategory = (category) =>
 
-    protected override void OnInitialized()
+#line default
+#line hidden
+#nullable disable
+        (__builder2) => {
+            __builder2.OpenElement(0, "a");
+            __builder2.AddAttribute(1, "href", "movies/search?categoryId=" + (
+#nullable restore
+#line 55 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Movies\ShowMovie.razor"
+                                                                                                     category.Id
+
+#line default
+#line hidden
+#nullable disable
+            ));
+            __builder2.AddContent(2, 
+#nullable restore
+#line 55 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Movies\ShowMovie.razor"
+                                                                                                                   category.Name
+
+#line default
+#line hidden
+#nullable disable
+            );
+            __builder2.CloseElement();
+        }
+#nullable restore
+#line 55 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\Movies\ShowMovie.razor"
+                                                                                                                                    ;
+ 
+    protected async override Task OnInitializedAsync()
     {
-        Movie = new Movie()
+        var responseHttp = await movie_i.Get<ViewMovie>($"api/movies/{Id}");
+        if (responseHttp.Error)
         {
-            Id = Id,
-            Name = "Movie Prueba",
-            Poster = "Images/Movies/movie1.jpeg",
-            Premier = DateTime.Today             
-        };
-    }
-    void MovieEdit()
-    {
-         Console.WriteLine($"Click para editar");
+            if (responseHttp.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                navigationManager.NavigateTo("");
+            }
+            else
+            {
+                var mensajeError = await responseHttp.GetBody();
+                await showMessage.ShowErrorMessage(mensajeError);
+            }
+        }
+        else
+        {
+            model = responseHttp.Response;
+        }
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movie_i { get; set; }
     }
 }
 #pragma warning restore 1591

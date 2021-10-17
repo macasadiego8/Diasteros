@@ -97,20 +97,20 @@ using ProjectMoviesDiasteros.Client.Services;
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\_Imports.razor"
-using ProjectMoviesDiasteros.Client.Pages;
+#line 2 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\FetchData.razor"
+using ProjectMoviesDiasteros.Client.Pages.Components;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\FetchData.razor"
-using ProjectMoviesDiasteros.Shared;
+#line 3 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\FetchData.razor"
+using ProjectMoviesDiasteros.Shared.Models;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/fetchdata")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/")]
     public partial class FetchData : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -119,20 +119,25 @@ using ProjectMoviesDiasteros.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 38 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\FetchData.razor"
+#line 21 "C:\ProysCicloIII\ProjectMoviesDiasteros\Client\Pages\FetchData.razor"
        
-    private WeatherForecast[] forecasts;
-
-    protected override async Task OnInitializedAsync()
+    private List<Movie> Estrenos;
+    private List<Movie> EnCartelera;
+ 
+    protected async override Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
+        var responseHttp = await movieI.Get<FilterMovie>("api/movies");
+        Estrenos = responseHttp.Response.ProximosEstrenos;
+        EnCartelera = responseHttp.Response.PeliculasEnCartelera;
     }
-
+ 
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private HttpClient Http { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager navigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IErrorMessage showMessage { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IServiceMovie movieI { get; set; }
     }
 }
 #pragma warning restore 1591
