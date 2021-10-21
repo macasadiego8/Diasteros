@@ -1,0 +1,56 @@
+@page "/actors/edit/{Id:int}"
+@using ProjectMoviesDiasteros.Client.Pages.Components
+@inject IServiceMovie movieI
+@inject IErrorMessage showMessage
+@inject NavigationManager navigationManager
+
+<div class="container">
+    <div class="jumbotron">
+        <h6>Editar actor</h6>
+        @if (Actor == null)
+        {
+            <div class="alert alert-info" role="alert">Cargando</div>                        
+        }
+        else
+        {
+            <FormActor Actor="Actor" OnValidSubmit="Edit"></FormActor>
+        }
+    </div>
+</div>
+@code
+{
+    [Parameter] public int Id { get; set; }
+    Actor Actor;
+    protected async override Task OnInitializedAsync()
+    {
+        var httpResponse = await movieI.Get<Actor>($"api/actors/{Id}");
+        if (httpResponse.Error)
+        {
+            if (httpResponse.HttpResponseMessage.StatusCode == System.Net.HttpStatusCode.NotFound)
+            {
+                navigationManager.NavigateTo("actors");
+            }
+            else
+            {
+                await showMessage.ShowErrorMessage(await httpResponse.GetBody());
+            }
+        }
+        else
+        {
+            Actor = httpResponse.Response;
+            Console.WriteLine(Actor.Photo);
+        }
+    }
+    private async Task Edit()
+    {
+        var httpResponse = await movieI.Put("api/actors", Actor);
+        if (httpResponse.Error)
+        {
+            await showMessage.ShowErrorMessage(await httpResponse.GetBody());            
+        }
+        else
+        {
+            navigationManager.NavigateTo("actors");
+        }
+    }
+}

@@ -1,0 +1,31 @@
+@page "/actors/create"
+@using ProjectMoviesDiasteros.Client.Pages.Components
+@inject NavigationManager navigationManager
+@inject IErrorMessage showMessages
+@inject IServiceMovie movieI
+
+<h3>Crear Actores</h3>
+
+<FormActor Actor="Actor" OnValidSubmit="Create"></FormActor>
+@code
+{
+    private Actor Actor = new Actor();
+    
+    private async Task Create()
+    {
+        var httpResponse = await movieI.Post("api/actors", Actor);
+        if (httpResponse.Error)
+        {
+            await showMessages.ShowErrorMessage(await httpResponse.GetBody());            
+        }
+        else
+        {
+            navigationManager.NavigateTo("/actors");            
+        }
+
+        Console.WriteLine($"Actor: {Actor.Name}");
+        Console.WriteLine($"Fecha de nacimiento: {Actor.BirthDate}");
+        Console.WriteLine($"Cantidad de créditos: {Actor.KnowCredits}");
+        Console.WriteLine($"Foto base64: {Actor.Photo}");
+    }
+}

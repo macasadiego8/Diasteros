@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="jumbotron">
+        <EditForm Model="Actor" OnValidSubmit="OnValidSubmit">
+            <DataAnnotationsValidator></DataAnnotationsValidator>
+            <div class="form-group row mb-3">
+                <div class="col-sm-8">
+                    <InputText class="form-control" @bind-Value="@Actor.Name" placeholder="Nombre"></InputText>
+                    <ValidationMessage For="@(()=>Actor.Name)"></ValidationMessage>
+                </div>
+                <div class="col-sm-4">
+                    <InputDate class="form-control" @bind-Value="@Actor.BirthDate"></InputDate>
+                    <ValidationMessage For="@(()=>Actor.BirthDate)"></ValidationMessage>
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <InputTextArea class="form-control" @bind-Value="@Actor.Biography" placeholder="Biografía del actor"></InputTextArea>
+                <ValidationMessage For="@(()=>Actor.Biography)"></ValidationMessage>
+            </div>
+            <div class="form-group row mb-3">
+                <div class="col-sm-6">                    
+                    <InputTextArea class="form-control" @bind-Value="@Actor.MoviesPerform" placeholder="Películas ganadoras"></InputTextArea>
+                    <ValidationMessage For="@(()=>Actor.MoviesPerform)"></ValidationMessage>                        
+                </div>
+                <div class="col-sm-6">
+                    <InputTextArea class="form-control" @bind-Value="@Actor.Awards" placeholder="Premios"></InputTextArea>
+                    <ValidationMessage For="@(()=>Actor.Awards)"></ValidationMessage>                    
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group">
+                            <ImageComponent Label="Foto" ImageSelected="ImageSelected" ImageURL="@imageURL"></ImageComponent>
+                        </div>
+                    </div>
+                    <div class="col">                        
+                        <div class="form-group mb-3">
+                            <label><small>Créditos:</small></label>
+                            <InputNumber class="form-control" @bind-Value="@Actor.KnowCredits" placeholder="Cantidad de créditos"></InputNumber>
+                            <ValidationMessage For="@(()=>Actor.KnowCredits)"></ValidationMessage>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success">Guardar</button>
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    string imageURL;
+    [Parameter] public Actor Actor { get; set; }
+    [Parameter] public EventCallback OnValidSubmit { get; set; }
+
+    protected override void OnInitialized()
+    {
+        if (!string.IsNullOrEmpty(Actor.Photo))
+        {
+            imageURL = Actor.Photo;
+            Console.WriteLine(imageURL);
+            Actor.Photo = null;
+        }
+    }
+
+    private void ImageSelected(string imageB64)
+    {
+        Actor.Photo = imageB64;
+        imageURL = null;
+    }
+}

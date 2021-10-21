@@ -1,0 +1,38 @@
+<div class="jumbotron">
+    <div class="container-fluid">
+            <div class="row mb-3">
+                @foreach (var movie in Movies)
+                {
+                    <div class="col-md-3">
+                        <div class="card-flex-md-row mb-4 box-shadow h-md-200">
+                            <div class="card-body d-flex flex-column align-items-start">
+                                <div class="card">
+                                    <small class="card-title">@movie.Name</small>
+                                    <img src="@movie.Poster" class="img-thumbnail card-img-top" alt="Card image cap" height="400px" width="400px">
+                                    <div class="card-body">                                        
+                                        <p class="text-muted">
+                                            @movie.Sinopsis
+                                            <br>
+                                            <small>@movie.Premier</small>
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <button class="btn btn-info mb-3 ml-md-4" href="movie" @onclick="@MovieDetails">Ver Más >></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+</div>
+@code
+{
+    [Parameter] public List<Movie> Movies{get;set;}
+    
+    void MovieDetails()
+    {
+         Console.WriteLine($"Ver detalles de película");
+    }
+}
